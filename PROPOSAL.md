@@ -16,7 +16,9 @@ Owen Zeng, Steven Wu
     Tarot cards and spectral cards generally interact with playing cards and jokers, either generating them or adding properties.
     Planet Cards are the simplest, as they only modify numbers.
     Jokers will affect almost everything, so they are the hardest to implement.
-    Scoring includes the calculation of numbers, as well as verifying certain conditions for jokers to trigger. This also includes determining hand types, also well as card modifications. The most immportant part of Balatro scoring is scoring order, as cards will gives +Numbers, or xNumbers, as well as trigger other cards, which includes the previous + and x.
+    Scoring includes the calculation of numbers, as well as verifying certain conditions for jokers to trigger. 
+    This also includes determining hand types, also well as card modifications. 
+    The most important part of Balatro scoring is scoring order, as cards will gives +Numbers, or xNumbers, as well as trigger other cards, which includes the previous + and x.
     We may not include all the jokers/difficulties/settings/bosses/graphics, because of time.
 
 
