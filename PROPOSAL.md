@@ -6,7 +6,8 @@ Owen Zeng, Steven Wu
 
 # IDEAS:
 
-1 Balatro Clone: [Steam page with gameplay mechanics] (https://store.steampowered.com/app/2379780/Balatro/)[Rules and tips](https://steamcommunity.com/sharedfiles/filedetails/?id=3166504510)
+1 Balatro Clone: [Steam page with gameplay mechanics](https://store.steampowered.com/app/2379780/Balatro/)   
+[Rules and tips](https://steamcommunity.com/sharedfiles/filedetails/?id=3166504510)
 
     We will be making a clone of balatro, which includes many different objects and subclasses. 
     The main difficulty will be creating the cards and their mechanics.
