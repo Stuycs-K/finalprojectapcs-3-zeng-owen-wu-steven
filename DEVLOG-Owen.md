@@ -2,8 +2,12 @@
 
 This document must be updated daily every time you finish a work session.
 
-## Owen CHANGE THE NAME FOOL!
+## Owen 
 
 ### 2025-05-16 - Brief description
-Expanded description including how much time was spent on task.
+Finished Balatro proposal
+
+### 2025-05-19
+Discussed with Steven about the UML diagrams and what classes/methods/fields we should make
+Added section 3
 
