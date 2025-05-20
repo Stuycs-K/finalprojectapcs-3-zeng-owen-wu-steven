@@ -10,3 +10,6 @@ Wrote down our proposals. I wrote 2 and 3.
 ### 2024-05-19 - Section 1 & 2 of Prototype
 Wrote seciton 1 of Prototype, started diagram.
 Discussing what features to add and the implementation with Owen
+
+### 2024-05-20 - Finished Diagram with Owen
+Finished discussing outline & UML diagram with Owen
