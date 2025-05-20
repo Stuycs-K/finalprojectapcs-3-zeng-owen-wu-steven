@@ -27,7 +27,7 @@ How you will be using the topics covered in class in the project.
 # Project Design
 
 UML Diagrams and descriptions of key algorithms, classes, and how things fit together.
-![diagram](umlDiagram.png)
+![diagram](files/umlDiagram.png)
 
 # Intended pacing:
 
