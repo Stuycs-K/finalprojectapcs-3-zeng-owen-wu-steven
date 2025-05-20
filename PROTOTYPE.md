@@ -37,17 +37,18 @@ A timeline with expected completion dates of parts of the project. (CHANGE THIS!
 (Assuming we start after wednesday)
 - [ ] By Friday, finish class structure
     - [ ] Finish tile(person 1)
-    - [ ] Finish Board(person 2 with person 1 help they finish tile)
-    - [ ] Finish Game class(person 2)
+    - [ ] Finish Board(person 1)
+    - [ ] Finish Level class(person 2)
 
 - [ ] By Wednesday, finish the visual representations of the game and mechanics
     - [ ] Finish board drawing(person 1)
     - [ ] Finish depiction of tiles(person 1)
     - [ ] Finish actions for first click generation(person 2)
-    - [ ] Finish flagging and chording, and click
+    - [ ] Finish flagging and chording, and click(person 2)
     - [ ] Finish win/lose screen (open for whoever finishes)
 
 -[ ] By Friday, get variations working.
     - [ ] Finish drawing on the board(person 1)
+    - [ ] Finish button class
     - [ ] Finish game hints(person 2)
     - [ ] Menu/Level layout with skips and retries(person 2)
