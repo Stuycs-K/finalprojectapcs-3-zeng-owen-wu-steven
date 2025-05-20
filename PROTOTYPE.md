@@ -48,7 +48,7 @@ A timeline with expected completion dates of parts of the project. (CHANGE THIS!
     - [ ] Finish flagging and chording, and click(person 2)
     - [ ] Finish win/lose screen (open for whoever finishes)
 
--[ ] By Friday, get variations working.
+- [ ] By Friday, get variations working.
     - [ ] Finish drawing on the board(person 1)
     - [ ] Finish button class
     - [ ] Finish game hints(person 2)
