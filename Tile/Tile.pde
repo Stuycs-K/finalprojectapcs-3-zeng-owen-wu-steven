@@ -6,8 +6,11 @@ public class Tile{
     boolean isFlagged;
 
 
-    Tile(){
-
+    Tile(int neighbors, boolean mine,  boolean revealed, boolean flagged){
+        this.neightborCount = neighbors;
+        this.isMine = mine;
+        this.isRevealed = revealed;
+        this.isFlagged = flagged;
     }
 
     boolean reveal(){
@@ -47,8 +50,13 @@ public class Tile{
     }
 
 
-    void setNeighborCount(int count){
-        this.neightborCount = count;
+    void setNeighborCount(){
+        count = 0;
+        for (int row = -1; row < 2; row++){
+            for(int col = -1; col < 2; row++){
+                
+            }
+        }
     }
 
 }
