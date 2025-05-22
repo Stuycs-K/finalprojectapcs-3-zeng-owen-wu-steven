@@ -25,13 +25,16 @@ public class Board{
     }
     void calcAmtNeighbors(int r, int c){
         int count = 0;
-        Tile t = board[r][c];
         for (int ri = -1; ri <= 1; ri++){
             for (int ci = -1; ci <= 1; ci++){
-                if ()
+                int selectR = r+ri;
+                int selectC = c+ci;
+                if (board[selectR][selectC].isMine && selectR >= 0 && selectR <= board.length && selectC >= 0 && selectR <= board[selectR].length){
+                    count++;
+                }
             }
         }
-
+        board[r][c].neighborCount = count;
     }
     void flagTile(int r, int c){
         board[r][c].flag = !board[r][c].flag;
