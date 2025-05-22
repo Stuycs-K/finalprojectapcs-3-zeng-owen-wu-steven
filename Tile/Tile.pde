@@ -14,11 +14,12 @@ public class Tile{
     }
 
     boolean reveal(){
-        
         if(mine){
-
+            // reveal method
         }
-
+        else{
+            // reveal numbers
+        }
 
 
         return mine;
