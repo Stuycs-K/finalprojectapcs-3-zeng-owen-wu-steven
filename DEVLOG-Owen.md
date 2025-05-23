@@ -15,3 +15,5 @@ Added section 3
 ### 2025-05-20
 Discussed to finish UML diagram and updated section 3 
 
+### 2025-05-22
+Working on tile class

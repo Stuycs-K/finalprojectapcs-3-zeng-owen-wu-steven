@@ -51,13 +51,8 @@ public class Tile{
     }
 
 
-    void setNeighborCount(){
-        count = 0;
-        for (int row = -1; row < 2; row++){
-            for(int col = -1; col < 2; row++){
-                
-            }
-        }
+    void setNeighborCount(int count){
+        this.neightborCount = count;
     }
 
 }
