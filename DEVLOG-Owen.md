@@ -17,3 +17,6 @@ Discussed to finish UML diagram and updated section 3
 
 ### 2025-05-22
 Working on tile class
+
+### 2025-05-23
+Adding coordinates to tile class and confirmed whether or not to use java or processing
