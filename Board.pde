@@ -17,7 +17,13 @@ public class Board{
             }
         }
     }
-    void draw() 
+    void draw(){
+        for (int r = 0; r < height; r++){
+            for (int c = 0; c < width; c++){
+                board[r][c].draw();
+            }
+        }
+    }
     void generate(int r, int c){ // put mines randomly everywhere, except the clicked tile & surrounding tiles
         for (int i = 0; i < totalMines; i++){
             Random rand = new Random();
