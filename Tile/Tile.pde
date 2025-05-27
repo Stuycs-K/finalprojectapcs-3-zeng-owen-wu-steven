@@ -6,7 +6,19 @@ public class Tile{
     boolean isFlagged;
     int xCor;
     int yCor;
-
+    PImage tile1;
+    PImage tile2;
+    PImage tile3;
+    PImage tile4;
+    PImage tile5;
+    PImage tile6;
+    PImage tile7;
+    PImage tile8;
+    PImage tileEmpty;
+    PImage tileExploded;
+    PImage tileFlag;
+    PImage tileMine;
+    PImage tileUnknown;
 
     Tile(int neighbors, boolean mine,  boolean revealed, boolean flagged, int xCor, int yCor){
         this.neighborCount = neighbors;
@@ -15,12 +27,11 @@ public class Tile{
         this.isFlagged = flagged;
         this.xCor = xCor;
         this.yCor = yCor;
+
+
+        
     }
 
-
-    draw(){
-
-    }
 
     boolean isMine(){
         return isMine;
@@ -67,4 +78,11 @@ public class Tile{
         yCor = y;
     }
 
+    void draw(){
+
+    }
+
+    void setup(){
+
+    }
 }
