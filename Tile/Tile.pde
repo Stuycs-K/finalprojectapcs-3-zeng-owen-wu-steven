@@ -104,23 +104,32 @@ public class Tile{
         else if(!(isRevealed && isMine)){
             switch(neighborCount){
                 case 0:
-                    image(tileEmpty, xCor, yCor)
+                    image(tileEmpty, xCor, yCor);
+                    break;
                 case 1:
-                    image(tile1, xCor, yCor)
+                    image(tile1, xCor, yCor);
+                    break;
                 case 2:
-                    image(tile2, xCor, yCor)
+                    image(tile2, xCor, yCor);
+                    break;
                 case 3:
-                    image(tile3, xCor, yCor)
+                    image(tile3, xCor, yCor);
+                    break;
                 case 4:
-                    image(tile4, xCor, yCor)
+                    image(tile4, xCor, yCor);
+                    break;
                 case 5:
-                    image(tile5, xCor, yCor)
+                    image(tile5, xCor, yCor);
+                    break;
                 case 6:
-                    image(tile6, xCor, yCor)
+                    image(tile6, xCor, yCor);
+                    break;
                 case 7:
-                    image(tile7, xCor, yCor)
+                    image(tile7, xCor, yCor);
+                    break;
                 case 8:
-                    image(tile8, xCor, yCor)
+                    image(tile8, xCor, yCor);
+                    break;
             }
         }
 

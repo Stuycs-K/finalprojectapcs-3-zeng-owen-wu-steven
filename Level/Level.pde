@@ -8,7 +8,7 @@ class Level{
     }
 
     void loadLevel(){
-        
+        board.draw()
     }
     void click(){
 

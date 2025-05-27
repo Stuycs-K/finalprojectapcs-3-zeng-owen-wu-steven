@@ -20,3 +20,6 @@ Working on tile class
 
 ### 2025-05-23
 Adding coordinates to tile class and confirmed whether or not to use java or processing
+
+### 2025-05-27
+Added draw() for tile sprites and images, and update readme
