@@ -15,3 +15,11 @@ Added section 3
 ### 2025-05-20
 Discussed to finish UML diagram and updated section 3 
 
+### 2025-05-22
+Working on tile class
+
+### 2025-05-23
+Adding coordinates to tile class and confirmed whether or not to use java or processing
+
+### 2025-05-27
+Added draw() for tile sprites and images, and update readme
