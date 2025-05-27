@@ -17,10 +17,19 @@ public class Board{
             }
         }
     }
-    void generate(int r, int c){ // put mines randomly everywhere, except the clicked tile.
+    void draw() 
+    void generate(int r, int c){ // put mines randomly everywhere, except the clicked tile & surrounding tiles
         for (int i = 0; i < totalMines; i++){
             Random rand = new Random();
-            int randR = rand.nextInt(board.     );   
+            int randR = rand.nextInt(board.length);
+            int randC = rand.nextInt(board[randR].length);
+            if (randR < r - 1 && randR > r + 1 && randC < c - 1 && randC > c + 1){
+                Tile tile = board[randR][randC];
+                tile.mine = true;
+                
+            }else{
+                i--;
+            }
         }
     }
     void calcAmtNeighbors(int r, int c){
