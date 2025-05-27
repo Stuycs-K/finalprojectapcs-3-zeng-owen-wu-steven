@@ -24,7 +24,7 @@ class Level{
 
     }
     void win(){
-
+        
     }
     void lose(){
 
