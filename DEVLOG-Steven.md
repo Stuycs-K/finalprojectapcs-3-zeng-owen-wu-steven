@@ -13,3 +13,8 @@ Discussing what features to add and the implementation with Owen
 
 ### 2024-05-20 - Finished Diagram with Owen
 Finished discussing outline & UML diagram with Owen
+
+### 2024-05-21 - Started Board Class
+Started coding Board class. Added basic methods like generate(), calcAmtNeighbors()
+
+### 2024-05-22 - Working Board Class

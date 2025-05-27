@@ -1,9 +1,9 @@
 public class Board{
     Tile[][] board;
     int totalMines;
-    int minesLeft;
-    boolean hasClicked;
-    int gameState;
+    int minesLeft; // totalMines - flagged tiles
+    boolean hasClicked; // necessary?
+    int gameState; // -1 :: loss, 0 :: in progress, 1 :: win
 
     Board(int width, int height, int mines){
         board = new Tile[height][width];
@@ -17,10 +17,10 @@ public class Board{
             }
         }
     }
-    void generate(int r, int c){
+    void generate(int r, int c){ // put mines randomly everywhere, except the clicked tile.
         for (int i = 0; i < totalMines; i++){
             Random rand = new Random();
-            int rand.nextInt();
+            int randR = rand.nextInt(board.     );   
         }
     }
     void calcAmtNeighbors(int r, int c){
