@@ -1,7 +1,7 @@
 public class Tile{
 
     boolean isMine;
-    int neightborCount;
+    int neighborCount;
     boolean isRevealed;
     boolean isFlagged;
     int xCor;
@@ -29,7 +29,19 @@ public class Tile{
         this.yCor = yCor;
 
 
-        
+        tile1 = loadImage("Sprites/Sprites/Tile1.png");
+        tile2 = loadImage("Sprites/Sprites/Tile2.png"); 
+        tile3 = loadImage("Sprites/Sprites/Tile3.png"); 
+        tile4 = loadImage("Sprites/Sprites/Tile4.png"); 
+        tile5 = loadImage("Sprites/Sprites/Tile5.png"); 
+        tile6 = loadImage("Sprites/Sprites/Tile6.png"); 
+        tile7 = loadImage("Sprites/Sprites/Tile7.png"); 
+        tile8 = loadImage("Sprites/Sprites/Tile8.png"); 
+        tileEmpty = loadImage("Sprites/Sprites/Empty.png"); 
+        tileExploded = loadImage("Sprites/Sprites/Exploded.png"); 
+        tileFlag = loadImage("Sprites/Sprites/TileFlag.png"); 
+        tileMine = loadImage("Sprites/Sprites/TileMine.png"); 
+        tileUnknown = loadImage("Sprites/Sprites/TileUnknown.png"); 
     }
 
 
@@ -79,10 +91,40 @@ public class Tile{
     }
 
     void draw(){
+        if(isMine){
+            image(tileMine, xCor, yCor);
+        }
+        if(isFlagged){
+            image(tileFlag, xCor, yCor);
+        }
+
+        if(!isRevealed){
+            image(tileUnknown, xCor, yCor);
+        }
+        else if(!(isRevealed && isMine)){
+            switch(neighborCount){
+                case 0:
+                    image(tileEmpty, xCor, yCor)
+                case 1:
+                    image(tile1, xCor, yCor)
+                case 2:
+                    image(tile2, xCor, yCor)
+                case 3:
+                    image(tile3, xCor, yCor)
+                case 4:
+                    image(tile4, xCor, yCor)
+                case 5:
+                    image(tile5, xCor, yCor)
+                case 6:
+                    image(tile6, xCor, yCor)
+                case 7:
+                    image(tile7, xCor, yCor)
+                case 8:
+                    image(tile8, xCor, yCor)
+            }
+        }
 
     }
 
-    void setup(){
 
-    }
 }
