@@ -26,9 +26,20 @@ public class Board{
             if (randR < r - 1 && randR > r + 1 && randC < c - 1 && randC > c + 1){
                 Tile tile = board[randR][randC];
                 tile.mine = true;
-                
+                addNeighbors(randR, randC);
             }else{
                 i--;
+            }
+        }
+    }
+    void addNeighbors(int r, int c){
+        for (int ri = -1; ri <= 1; ri++){
+            for (int ci = -1; ci <= 1; ci++){
+                int selectR = r+ri;
+                int selectC = c+ci;
+                if (board[selectR][selectC].isMine && selectR >= 0 && selectR <= board.length && selectC >= 0 && selectR <= board[selectR].length){
+                    board[selectR][selectC].neighborCount++;
+                }
             }
         }
     }
