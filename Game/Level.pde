@@ -1,14 +1,16 @@
 class Level{
+    Tile tile;
     Board board;
     int minesLeft;
     Button[] buttons;
+    
 
     public Level(Board board, int remainingMines, Button[] buttons){
-
+        
     }
 
     void loadLevel(){
-        board.draw()
+        board.draw();
     }
     void click(){
 
