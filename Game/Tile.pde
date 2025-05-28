@@ -1,4 +1,4 @@
-public class Tile{
+class Tile{
 
     boolean isMine;
     int neighborCount;
@@ -55,7 +55,7 @@ public class Tile{
         return isFlagged;
     }
     int getNeighborCount(){
-        return neightborCount;
+        return neighborCount;
     }
     int getXcor(){
         return xCor;
@@ -85,7 +85,7 @@ public class Tile{
         xCor = x;
     
     }
-
+   
     void setY(int y){
         yCor = y;
     }
@@ -134,6 +134,7 @@ public class Tile{
         }
 
     }
+
 
 
 }
