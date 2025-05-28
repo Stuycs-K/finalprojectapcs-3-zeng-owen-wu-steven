@@ -18,3 +18,6 @@ Finished discussing outline & UML diagram with Owen
 Started coding Board class. Added basic methods like generate(), calcAmtNeighbors()
 
 ### 2024-05-22 - Working Board Class
+Researched about generating Minesweeper boards, finished the rest of Board class & methods.
+
+### 2024-05-27 - Finished Board, Fixing Merge issues
