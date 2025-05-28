@@ -2,7 +2,7 @@ public class Board{
     Tile[][] board;
     int totalMines;
     int minesLeft; // totalMines - flagged tiles
-    boolean hasClicked; // necessary?
+    boolean firstClick; // necessary?
     int gameState; // -1 :: loss, 0 :: in progress, 1 :: win
 
     Board(int width, int height, int mines){
