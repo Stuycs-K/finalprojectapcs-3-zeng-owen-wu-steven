@@ -18,6 +18,10 @@ class Tile{
 
     }
 
+    Tile(int xCor, int yCor){
+        this(0,false,false,false,xCor,yCor);
+    }
+
 
     boolean isMine(){
         return isMine;
