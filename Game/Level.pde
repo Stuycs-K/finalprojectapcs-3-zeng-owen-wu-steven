@@ -5,7 +5,7 @@ class Level{
     Button[] buttons;
     
 
-    public Level(Board board, int remainingMines, Button[] buttons){
+    Level(Board board, int remainingMines, Button[] buttons){
         
     }
 
@@ -29,7 +29,6 @@ class Level{
         
     }
     void lose(){
-
 
     }
     void clickButton(Button button){

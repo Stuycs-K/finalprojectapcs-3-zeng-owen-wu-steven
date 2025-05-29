@@ -13,7 +13,7 @@ public class Board{
         firstClick = false;
         for (int r = 0; r < height; r++){
             for (int c = 0; c < width; c++){
-                board[r][c] = new Tile();
+                board[r][c] = new Tile(r,c);
             }
         }
     }
@@ -31,7 +31,7 @@ public class Board{
             int randC = rand.nextInt(board[randR].length);
             if (randR < r - 1 && randR > r + 1 && randC < c - 1 && randC > c + 1){
                 Tile tile = board[randR][randC];
-                tile.mine = true;
+                tile.setMineStatus(true);
                 addNeighbors(randR, randC);
             }else{
                 i--;
@@ -43,8 +43,8 @@ public class Board{
             for (int ci = -1; ci <= 1; ci++){
                 int selectR = r+ri;
                 int selectC = c+ci;
-                if (board[selectR][selectC].isMine && selectR >= 0 && selectR <= board.length && selectC >= 0 && selectR <= board[selectR].length){
-                    board[selectR][selectC].setNeighborCount(board[selectR][selectC].getNeighborCount + 1); // + 1 count
+                if (board[selectR][selectC].isMine() && selectR >= 0 && selectR <= board.length && selectC >= 0 && selectR <= board[selectR].length){
+                    board[selectR][selectC].setNeighborCount(board[selectR][selectC].getNeighborCount() + 1); // + 1 count
                 }
             }
         }
@@ -55,12 +55,12 @@ public class Board{
             for (int ci = -1; ci <= 1; ci++){
                 int selectR = r+ri;
                 int selectC = c+ci;
-                if (board[selectR][selectC].isMine && selectR >= 0 && selectR <= board.length && selectC >= 0 && selectR <= board[selectR].length){
+                if (board[selectR][selectC].isMine() && selectR >= 0 && selectR <= board.length && selectC >= 0 && selectR <= board[selectR].length){
                     count++;
                 }
             }
         }
-        board[r][c].neighborCount = count;
+        board[r][c].setNeighborCount(count);
     }
     void flagTile(int r, int c){
         board[r][c].setMineStatus(!board[r][c].isFlagged);
