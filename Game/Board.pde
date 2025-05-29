@@ -44,7 +44,7 @@ public class Board{
                 int selectR = r+ri;
                 int selectC = c+ci;
                 if (board[selectR][selectC].isMine && selectR >= 0 && selectR <= board.length && selectC >= 0 && selectR <= board[selectR].length){
-                    board[selectR][selectC].neighborCount++;
+                    board[selectR][selectC].setNeighborCount(board[selectR][selectC].getNeighborCount + 1); // + 1 count
                 }
             }
         }
@@ -63,6 +63,6 @@ public class Board{
         board[r][c].neighborCount = count;
     }
     void flagTile(int r, int c){
-        board[r][c].flag = !board[r][c].flag;
+        board[r][c].setMineStatus(!board[r][c].isFlagged);
     }
 }
