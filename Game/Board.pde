@@ -6,14 +6,15 @@ public class Board{
     int gameState; // -1 :: loss, 0 :: in progress, 1 :: win
 
     Board(int width, int height, int mines){
-        board = new Tile[height][width];
+        int tileMagnification = 20;
+        board = new Tile[16][16];
         totalMines = mines;
         minesLeft = mines;
         gameState = 0;
         firstClick = false;
         for (int r = 0; r < height; r++){
             for (int c = 0; c < width; c++){
-                board[r][c] = new Tile(r,c);
+                board[r][c] = new Tile(r * tileMagnification,c * tileMagnification);
             }
         }
     }
