@@ -24,6 +24,13 @@ public class Board{
             }
         }
     }
+    boolean revealTile(int r, int c){ // returns false if invalid (if flagged, or revealed), returns true otherwise.
+        Tile tile = board[r][c];
+        if (tile.isFlagged || tile.isRevealed){
+            
+        }
+
+    }
     void generate(int r, int c){ // put mines randomly everywhere, except the clicked tile & surrounding tiles
         for (int i = 0; i < totalMines; i++){
             Random rand = new Random();

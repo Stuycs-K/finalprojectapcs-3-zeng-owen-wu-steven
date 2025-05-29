@@ -12,8 +12,8 @@ class Level{
     void loadLevel(){
         board.draw();
     }
-    void click(){
-
+    void click(int r,int c){
+        
     }
     void chord(){
 
