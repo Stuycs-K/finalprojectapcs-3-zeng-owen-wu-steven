@@ -1,4 +1,4 @@
-Tile tile;
+
 
 void setup(){
   

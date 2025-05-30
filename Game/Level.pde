@@ -1,21 +1,20 @@
 class Level{
-    Tile tile;
     Board board;
     int minesLeft;
-    Button[] buttons;
+    // Button[] buttons;
     
 
     Level(Board board, int remainingMines, Button[] buttons){
         
     }
-
+    
     void loadLevel(){
         board.draw();
     }
-    void click(int r,int c){
-        
+    void click(int x, int y){
+        // convert
     }
-    void chord(){
+    void chord(int x, int y){
 
     }
     void flagTile(Tile tile){
@@ -31,9 +30,9 @@ class Level{
     void lose(){
 
     }
-    void clickButton(Button button){
-        button.function();
-    }
+    // void clickButton(Button button){
+    //     button.function();
+    // }
 
 
 
