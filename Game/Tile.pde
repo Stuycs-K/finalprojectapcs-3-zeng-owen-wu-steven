@@ -12,9 +12,9 @@ class Tile{
         this.isMine = mine;
         this.isRevealed = revealed;
         this.isFlagged = flagged;
-        this.xCor = xCor;
-        this.yCor = yCor;
-
+        this.xCor = xCor + width/4;
+        this.yCor = yCor + height / 6;
+        
 
     }
 

@@ -31,19 +31,19 @@ void setup(){
 
         level = new Level(new Board(16,16,20), 20);
         
-        tile1.resize(20,20);
-        tile2.resize(20,20);
-        tile3.resize(20,20);
-        tile4.resize(20,20);
-        tile5.resize(20,20);
-        tile6.resize(20,20);
-        tile7.resize(20,20);
-        tile8.resize(20,20);
-        tileEmpty.resize(20,20);
-        tileExploded.resize(20,20);
-        tileMine.resize(20,20);
-        tileFlag.resize(20,20);
-        tileUnknown.resize(20,20);
+        tile1.resize(30,30);
+        tile2.resize(30,30);
+        tile3.resize(30,30);
+        tile4.resize(30,30);
+        tile5.resize(30,30);
+        tile6.resize(30,30);
+        tile7.resize(30,30);
+        tile8.resize(30,30);
+        tileEmpty.resize(30,30);
+        tileExploded.resize(30,30);
+        tileMine.resize(30,30);
+        tileFlag.resize(30,30);
+        tileUnknown.resize(30,30);
         
         
 }

@@ -6,7 +6,7 @@ public class Board{
     int gameState; // -1 :: loss, 0 :: in progress, 1 :: win
 
     Board(int width, int height, int mines){
-        int tileMagnification = 20;
+        int tileMagnification = 30;
         board = new Tile[16][16];
         totalMines = mines;
         minesLeft = mines;
