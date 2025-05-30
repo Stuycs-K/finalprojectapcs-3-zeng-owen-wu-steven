@@ -1,10 +1,9 @@
 class Level{
     Board board;
     int minesLeft;
-    // Button[] buttons;
     
 
-    Level(Board board, int remainingMines, Button[] buttons){
+    public Level(Board board, int remainingMines){
         
     }
     
