@@ -5,7 +5,8 @@ class Level{
     
 
     public Level(Board board, int remainingMines){
-        
+        this.board = board;
+        this.minesLeft = remainingMines;
     }
 
     void loadLevel(){
@@ -30,10 +31,12 @@ class Level{
     void lose(){
 
     }
-    void clickButton(Button button){
-        button.function();
+    //void clickButton(Button button){
+    //    button.function();
+    //}
+
+    void draw(){
+      board.draw();
     }
-
-
 
 }

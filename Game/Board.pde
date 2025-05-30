@@ -19,17 +19,16 @@ public class Board{
         }
     }
     void draw(){
-        for (int r = 0; r < height; r++){
-            for (int c = 0; c < width; c++){
+        for (int r = 0; r < board.length; r++){
+            for (int c = 0; c < board[0].length; c++){
                 board[r][c].draw();
             }
         }
     }
     void generate(int r, int c){ // put mines randomly everywhere, except the clicked tile & surrounding tiles
         for (int i = 0; i < totalMines; i++){
-            Random rand = new Random();
-            int randR = rand.nextInt(board.length);
-            int randC = rand.nextInt(board[randR].length);
+            int randR = (int)(random(board.length));
+            int randC = (int)(random(board[randR].length));
             if (randR < r - 1 && randR > r + 1 && randC < c - 1 && randC > c + 1){
                 Tile tile = board[randR][randC];
                 tile.setMineStatus(true);
@@ -66,4 +65,6 @@ public class Board{
     void flagTile(int r, int c){
         board[r][c].setMineStatus(!board[r][c].isFlagged);
     }
+    
+   
 }

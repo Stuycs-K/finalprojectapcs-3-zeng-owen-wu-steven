@@ -1,6 +1,5 @@
 Level level;
 
-
 PImage tile1;
 PImage tile2;
 PImage tile3;
@@ -15,26 +14,47 @@ PImage tileFlag;
 PImage tileMine;
 PImage tileUnknown;
 void setup(){
-        tile1 = loadImage("Sprites/Sprites/Tile1.png");
-        tile2 = loadImage("Sprites/Sprites/Tile2.png"); 
-        tile3 = loadImage("Sprites/Sprites/Tile3.png"); 
-        tile4 = loadImage("Sprites/Sprites/Tile4.png"); 
-        tile5 = loadImage("Sprites/Sprites/Tile5.png"); 
-        tile6 = loadImage("Sprites/Sprites/Tile6.png"); 
-        tile7 = loadImage("Sprites/Sprites/Tile7.png"); 
-        tile8 = loadImage("Sprites/Sprites/Tile8.png"); 
-        tileEmpty = loadImage("Sprites/Sprites/Empty.png"); 
-        tileExploded = loadImage("Sprites/Sprites/Exploded.png"); 
-        tileFlag = loadImage("Sprites/Sprites/TileFlag.png"); 
-        tileMine = loadImage("Sprites/Sprites/TileMine.png"); 
-        tileUnknown = loadImage("Sprites/Sprites/TileUnknown.png"); 
+  size(1080,720);
+        tile1 = loadImage("../Sprites/Sprites/Tile1.png");
+        tile2 = loadImage("../Sprites/Sprites/Tile2.png"); 
+        tile3 = loadImage("../Sprites/Sprites/Tile3.png"); 
+        tile4 = loadImage("../Sprites/Sprites/Tile4.png"); 
+        tile5 = loadImage("../Sprites/Sprites/Tile5.png"); 
+        tile6 = loadImage("../Sprites/Sprites/Tile6.png"); 
+        tile7 = loadImage("../Sprites/Sprites/Tile7.png"); 
+        tile8 = loadImage("../Sprites/Sprites/Tile8.png"); 
+        tileEmpty = loadImage("../Sprites/Sprites/TileEmpty.png"); 
+        tileExploded = loadImage("../Sprites/Sprites/TileExploded.png"); 
+        tileFlag = loadImage("../Sprites/Sprites/TileFlag.png"); 
+        tileMine = loadImage("../Sprites/Sprites/TileMine.png"); 
+        tileUnknown = loadImage("../Sprites/Sprites/TileUnknown.png"); 
 
         level = new Level(new Board(16,16,20), 20);
-          
+        
+        tile1.resize(20,20);
+        tile2.resize(20,20);
+        tile3.resize(20,20);
+        tile4.resize(20,20);
+        tile5.resize(20,20);
+        tile6.resize(20,20);
+        tile7.resize(20,20);
+        tile8.resize(20,20);
+        tileEmpty.resize(20,20);
+        tileExploded.resize(20,20);
+        tileMine.resize(20,20);
+        tileFlag.resize(20,20);
+        tileUnknown.resize(20,20);
+        
+        
 }
 
 void draw(){
-    Level.draw();
+   level.draw();
+
 }
 
 
+void mouseClicked(){
+
+  
+}
