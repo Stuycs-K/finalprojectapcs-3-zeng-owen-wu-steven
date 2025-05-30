@@ -1,5 +1,4 @@
 class Level{
-    Tile tile;
     Board board;
     int minesLeft;
     
@@ -8,14 +7,14 @@ class Level{
         this.board = board;
         this.minesLeft = remainingMines;
     }
-
+    
     void loadLevel(){
         board.draw();
     }
-    void click(){
-
+    void click(int x, int y){
+        // convert
     }
-    void chord(){
+    void chord(int x, int y){
 
     }
     void flagTile(Tile tile){
