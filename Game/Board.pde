@@ -33,7 +33,10 @@ public class Board{
             Tile tile = board[r][c];
             if (!tile.isFlagged && !tile.isRevealed){
                 tile.setReveal(true);
-                if (tile.isMine){
+                if (tile.neighborCount == 0){
+                    clearZeroes(r,c);
+                }
+                else if (tile.isMine){
                     gameState = -1;
                 }
             }
@@ -52,17 +55,15 @@ public class Board{
             }
         }
     }
-    void clearZeros(int r, int c){
+    void clearZeroes(int r, int c){
         if(r >= 0 && c >= 0 && r < board.length && c < board[0].length){ 
             Tile tile = board[r][c];
-            if (!tile.isFlagged && !tile.isRevealed){
-                tile.setReveal(true);
-                if (tile.getNeighborCount() == 0){
-                    for (int i = -1; i <= 1; i++) {
-                        for (int j = -1; j <= 1; j++) {
-                            if (i != 0 || j != 0) {
-                                clearZeroes(r + i, c + j);
-                            }
+            tile.setReveal(true);
+            if (tile.getNeighborCount() == 0){
+                for (int i = -1; i <= 1; i++) {
+                    for (int j = -1; j <= 1; j++) {
+                        if (i != 0 || j != 0) {
+                            clearZeroes(r + i, c + j);
                         }
                     }
                 }
