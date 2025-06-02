@@ -73,7 +73,7 @@ public class Board{
             for (int ci = -1; ci <= 1; ci++){
                 int selectR = r+ri;
                 int selectC = c+ci;
-                if (board[selectR][selectC].isMine() && selectR >= 0 && selectR <= board.length && selectC >= 0 && selectR <= board[selectR].length){
+                if (selectR >= 0 && selectR < board.length && selectC >= 0 && selectC < board[selectR].length && board[selectR][selectC].isMine()){
                     count++;
                 }
             }

@@ -28,6 +28,15 @@ class Level{
 
             if(r >= 0 && c >= 0 && r < board.board.length && c < board.board[0].length){ 
                 Tile current = board.board[r][c];
+
+                // firstReveal(r,c);
+                for(int i = -1; i <= 1; i++){
+                    for(int j = -1; j <= 1; j++){
+                        if(r + i >= 0 && c+j >= 0 && r+i < board.board.length && c+j < board.board[0].length){
+                            board.revealTile(r+i,c+j);
+                        }
+                    }
+                }
             }
             
         }
@@ -40,7 +49,30 @@ class Level{
           
     }
 
-    
+    void firstReveal(int r, int c){
+        if(board.board[r][c].isRevealed()){
+            return ;
+        }
+
+        if(! board.board[r][c].isMine()){
+            board.revealTile(r,c);
+
+            int[] tempR = {-1,1,0,0};
+            int[] tempC = {0,0, -1,1};
+
+            for(int i = 0; i < 4; i++){
+                int currentR = r+tempR[i];
+                int currentC = c+tempC[i];
+
+
+                if(currentR >= 0 && currentR < board.board.length && currentC >=0 && currentC < board.board[0].length){
+                    firstReveal(currentR, currentC);
+                }
+            }
+        }  
+    }
+
+
     void chord(int x, int y){
         int r = (x-xOffset) / 30 ;
         int c = (y-yOffset) / 30;

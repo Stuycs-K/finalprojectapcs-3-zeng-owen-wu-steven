@@ -47,11 +47,7 @@ void setup(){
         level = new Level(new Board(16,16,numMines), numMines);
 
         
-        for(int i = 0; i < level.board.board.length; i++){
-            for(int j = 0; j < level.board.board[i].length; j++){
-
-            }
-        }
+        
         toString();
 
         
@@ -66,6 +62,12 @@ void draw(){
             toString();
         }
     }
+
+    for(int i = 0; i < level.board.board.length; i++){
+            for(int j = 0; j < level.board.board[i].length; j++){
+                level.board.calcAmtNeighbors(i,j);
+            }
+        }
 
     level.checkWin();
     if(level.board.gameState == -1){
@@ -127,8 +129,6 @@ String toString(){
     ans+= "}";
 
     println(ans);
-        print("firstClick: ");
-        println(level.board.firstClick );
         println("state : " + level.board.gameState);
 
     return (ans);   
