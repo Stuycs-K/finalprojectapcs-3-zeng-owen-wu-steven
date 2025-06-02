@@ -34,7 +34,7 @@ public class Board{
             if (!tile.isFlagged && !tile.isRevealed){
                 tile.setReveal(true);
                 if (tile.neighborCount == 0){
-                    clearZeroes(r,c);
+                    // clearZeroes(r,c); Doesnt work
                 }
                 else if (tile.isMine){
                     gameState = -1;
