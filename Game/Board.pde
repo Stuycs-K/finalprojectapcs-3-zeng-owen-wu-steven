@@ -4,6 +4,7 @@ public class Board{
     int minesLeft; // totalMines - flagged tiles
     boolean firstClick; // necessary?
     int gameState; // -1 :: loss, 0 :: in progress, 1 :: win
+    ArrayDeque zeroTracker;
 
     Board(int width, int height, int mines){
         int tileMagnification = 30;
@@ -34,7 +35,7 @@ public class Board{
             if (!tile.isFlagged && !tile.isRevealed){
                 tile.setReveal(true);
                 if (tile.neighborCount == 0){
-                    // clearZeroes(r,c); Doesnt work
+                    clearZeroes(r,c);
                 }
                 else if (tile.isMine){
                     gameState = -1;
@@ -58,6 +59,7 @@ public class Board{
     void clearZeroes(int r, int c){
         if(r >= 0 && c >= 0 && r < board.length && c < board[0].length){ 
             Tile tile = board[r][c];
+            
             tile.setReveal(true);
             if (tile.getNeighborCount() == 0){
                 for (int i = -1; i <= 1; i++) {
