@@ -86,7 +86,7 @@ void draw(){
     } 
     // DEBUG
     fill(0);
-    text(mouseX + ", "+mouseY, mouseX, mouseY);
+    // text(mouseX + ", "+mouseY, mouseX, mouseY);
 
 }
 
