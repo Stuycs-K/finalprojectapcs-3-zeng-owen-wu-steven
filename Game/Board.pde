@@ -30,7 +30,7 @@ public class Board{
     }
     void revealTile(int r, int c){ // returns false if invalid (if flagged, or revealed), returns true otherwise.
 
-        if(r > 0 && c > 0 && r < board.length && c < board[0].length){ 
+        if(r >= 0 && c >= 0 && r < board.length && c < board[0].length){ 
             Tile tile = board[r][c];
             if (!tile.isFlagged && !tile.isRevealed){
                 tile.setReveal(true);
