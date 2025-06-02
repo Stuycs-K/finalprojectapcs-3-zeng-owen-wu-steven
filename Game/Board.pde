@@ -32,6 +32,12 @@ public class Board{
     void toggleFlag(int r, int c){
         board[r][c].flag = !board[r][c].flag;
     }
+    boolean isValid(int r, int c, boolean interactable){
+        if (tile.isFlagged || tile.isRevealed){
+            return false;
+        }
+        return r >= 0 && c >= 0 && r < board.length && c < board[0].length;
+    }
     void revealTile(int r, int c){ // returns false if invalid (if flagged, or revealed), returns true otherwise.
         if(r >= 0 && c >= 0 && r < board.length && c < board[0].length){ 
             Tile tile = board[r][c];
