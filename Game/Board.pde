@@ -29,6 +29,9 @@ public class Board{
             }
         }
     }
+    void toggleFlag(int r, int c){
+        board[r][c].flag = !board[r][c].flag;
+    }
     void revealTile(int r, int c){ // returns false if invalid (if flagged, or revealed), returns true otherwise.
         if(r >= 0 && c >= 0 && r < board.length && c < board[0].length){ 
             Tile tile = board[r][c];
@@ -59,7 +62,7 @@ public class Board{
     void clearZeroes(int r, int c){
         if(r >= 0 && c >= 0 && r < board.length && c < board[0].length){ 
             Tile tile = board[r][c];
-            
+
             tile.setReveal(true);
             if (tile.getNeighborCount() == 0){
                 for (int i = -1; i <= 1; i++) {
