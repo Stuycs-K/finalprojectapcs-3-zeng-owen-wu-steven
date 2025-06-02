@@ -47,7 +47,7 @@ public class Board{
         for (int i = 0; i < totalMines; i++){
             int randR = (int)(random(board.length));
             int randC = (int)(random(board[randR].length));
-            if (randR < r - 1 && randR > r + 1 && randC < c - 1 && randC > c + 1){
+            if (randR < r - 1 || randR > r + 1 || randC < c - 1 || randC > c + 1){
                 Tile tile = board[randR][randC];
                 tile.setMineStatus(true);
                 addNeighbors(randR, randC);
@@ -61,7 +61,7 @@ public class Board{
             for (int ci = -1; ci <= 1; ci++){
                 int selectR = r+ri;
                 int selectC = c+ci;
-                if (board[selectR][selectC].isMine() && selectR >= 0 && selectR <= board.length && selectC >= 0 && selectR <= board[selectR].length){
+                if (selectR >= 0 && selectR < board.length && selectC >= 0 && selectC < board[selectR].length && board[selectR][selectC].isMine() ){
                     board[selectR][selectC].setNeighborCount(board[selectR][selectC].getNeighborCount() + 1); // + 1 count
                 }
             }

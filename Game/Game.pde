@@ -42,8 +42,18 @@ void setup(){
         tileMine.resize(30,30);
         tileFlag.resize(30,30);
         tileUnknown.resize(30,30);
-        level = new Level(new Board(16,16,20), 20);
+
+        int numMines = 20;
+        level = new Level(new Board(16,16,numMines), numMines);
+
         
+        for(int i = 0; i < level.board.board.length; i++){
+            for(int j = 0; j < level.board.board[i].length; j++){
+
+            }
+        }
+        toString();
+
         
         
         
@@ -52,12 +62,14 @@ void setup(){
 void draw(){
     if(keyPressed){
         if(key == ' '){
-
+            level = new Level(new Board(16,16,20), 20);
+            toString();
         }
     }
 
     level.checkWin();
     if(level.board.gameState == -1){
+        level.draw();
         level.lose();
         level.board.firstClick = true;
     }
@@ -115,5 +127,9 @@ String toString(){
     ans+= "}";
 
     println(ans);
+        print("firstClick: ");
+        println(level.board.firstClick );
+        println("state : " + level.board.gameState);
+
     return (ans);   
 }

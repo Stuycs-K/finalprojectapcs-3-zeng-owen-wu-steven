@@ -18,20 +18,29 @@ class Level{
         int c = (y-yOffset) / 30;
 
         if(board.firstClick){
-            board.firstClick = false;
-            board.generate(r,c);
+            board.firstClick = !board.firstClick;
+            println("first click");
+            
+
+            if(r >= 0 && c >= 0 && r < board.board.length && c < board.board[0].length){ 
+                board.generate(r,c);
+            }
+
+            if(r >= 0 && c >= 0 && r < board.board.length && c < board.board[0].length){ 
+                Tile current = board.board[r][c];
+            }
+            
         }
         else{
             if(r >= 0 && c >= 0 && r < board.board.length && c < board.board[0].length){ 
-            Tile current = board.board[r][c];
+                Tile current = board.board[r][c];
             }
             board.revealTile(r,c);
         }
-        
-        
-        
-        
+          
     }
+
+    
     void chord(int x, int y){
         int r = (x-xOffset) / 30 ;
         int c = (y-yOffset) / 30;
