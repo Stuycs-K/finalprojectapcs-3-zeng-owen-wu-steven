@@ -86,9 +86,9 @@ class Level{
 
                 for(int i  = -1; i <= 1; i++){
                     for (int j = -1; j <= 1; j++){
-                        if(i > 0 && j > 0 && i < board.board.length && j < board.board[0].length){
-                            if(board.board[i][j].isFlagged()){
-                                count ++;
+                        if(r + i > 0 && c + j > 0 && r + i < board.board.length && c + j < board.board[0].length){
+                            if(board.board[r + i][c + j].isFlagged()){
+                                count++;
                             }
                         }
 
@@ -98,9 +98,9 @@ class Level{
                 if(count == current.neighborCount){
                     for(int i  = -1; i <= 1; i++){
                         for (int j = -1; j <= 1; j++){
-                            if(i > 0 && j > 0 && i < board.board.length && j < board.board[0].length){
-                                if(! board.board[i][j].isFlagged()){
-                                    board.revealTile(i,j);
+                            if(r + i > 0 && c + j > 0 && r + i < board.board.length && c + j < board.board[0].length){
+                                if(! board.board[r +i][c + j].isFlagged()){
+                                    board.revealTile(r + i, c + j);
                                 }
                             }
 
