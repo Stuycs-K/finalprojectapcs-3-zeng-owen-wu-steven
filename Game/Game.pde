@@ -81,8 +81,10 @@ void draw(){
     if(level.board.gameState == 0){
         level.draw();
 
-    }
-    
+    } 
+    // DEBUG
+    fill(0);
+    text(mouseX + ", "+mouseY, mouseX, mouseY);
 
 }
 
