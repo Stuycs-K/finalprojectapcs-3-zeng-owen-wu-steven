@@ -11,7 +11,6 @@ Finished Balatro proposal
 Discussed with Steven about the UML diagrams and what classes/methods/fields we should make
 Added section 3
 
-
 ### 2025-05-20
 Discussed to finish UML diagram and updated section 3 
 
@@ -23,3 +22,4 @@ Adding coordinates to tile class and confirmed whether or not to use java or pro
 
 ### 2025-05-27
 Added draw() for tile sprites and images, and update readme
+

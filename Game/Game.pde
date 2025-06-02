@@ -29,8 +29,6 @@ void setup(){
         tileMine = loadImage("../Sprites/Sprites/TileMine.png"); 
         tileUnknown = loadImage("../Sprites/Sprites/TileUnknown.png"); 
 
-        level = new Level(new Board(16,16,20), 20);
-        
         tile1.resize(30,30);
         tile2.resize(30,30);
         tile3.resize(30,30);
@@ -44,17 +42,30 @@ void setup(){
         tileMine.resize(30,30);
         tileFlag.resize(30,30);
         tileUnknown.resize(30,30);
+        level = new Level(new Board(16,16,20), 20);
+        
+        
         
         
 }
 
 void draw(){
-   level.draw();
+    if(gameState == -1){
+        level.lose();
+    }
+    if(gameState == 1){
+        level.win();
+    }
+    if(gameState == 0){
+        level.draw();
+        
+    }
+    
 
 }
 
 
 void mouseClicked(){
 
-  
+    
 }

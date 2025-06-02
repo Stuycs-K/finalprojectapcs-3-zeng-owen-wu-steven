@@ -8,12 +8,18 @@ class Tile{
     int yCor;
 
     Tile(int neighbors, boolean mine,  boolean revealed, boolean flagged, int xCor, int yCor){
+        int xOffset = width / 4;
+        int yOffset = height / 6;
+
+
+
+
         this.neighborCount = neighbors;
         this.isMine = mine;
         this.isRevealed = revealed;
         this.isFlagged = flagged;
-        this.xCor = xCor + width/4;
-        this.yCor = yCor + height / 6;
+        this.xCor = xCor + xOffset;
+        this.yCor = yCor + yOffset;
         
 
     }
@@ -69,16 +75,20 @@ class Tile{
     }
 
     void draw(){
-        if(isMine){
-            image(tileMine, xCor, yCor);
-        }
         if(isFlagged){
             image(tileFlag, xCor, yCor);
         }
 
-        if(!isRevealed){
+        else if(!isRevealed){
             image(tileUnknown, xCor, yCor);
         }
+        
+
+        else if(isMine){
+            image(tileMine, xCor, yCor);
+        }
+        
+    
         else if(!(isRevealed && isMine)){
             switch(neighborCount){
                 case 0:

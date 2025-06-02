@@ -7,6 +7,9 @@ public class Board{
 
     Board(int width, int height, int mines){
         int tileMagnification = 30;
+
+
+
         board = new Tile[16][16];
         totalMines = mines;
         minesLeft = mines;
