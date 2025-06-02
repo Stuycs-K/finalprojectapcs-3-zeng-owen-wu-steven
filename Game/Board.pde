@@ -29,7 +29,6 @@ public class Board{
         }
     }
     void revealTile(int r, int c){ // returns false if invalid (if flagged, or revealed), returns true otherwise.
-
         if(r >= 0 && c >= 0 && r < board.length && c < board[0].length){ 
             Tile tile = board[r][c];
             if (!tile.isFlagged && !tile.isRevealed){
@@ -39,9 +38,6 @@ public class Board{
                 }
             }
         }
-        
-        
-
     }
     void generate(int r, int c){ // put mines randomly everywhere, except the clicked tile & surrounding tiles
         for (int i = 0; i < totalMines; i++){
@@ -53,6 +49,23 @@ public class Board{
                 addNeighbors(randR, randC);
             }else{
                 i--;
+            }
+        }
+    }
+    void clearZeros(int r, int c){
+        if(r >= 0 && c >= 0 && r < board.length && c < board[0].length){ 
+            Tile tile = board[r][c];
+            if (!tile.isFlagged && !tile.isRevealed){
+                tile.setReveal(true);
+                if (tile.getNeighborCount() == 0){
+                    for (int i = -1; i <= 1; i++) {
+                        for (int j = -1; j <= 1; j++) {
+                            if (i != 0 || j != 0) {
+                                clearZeroes(r + i, c + j);
+                            }
+                        }
+                    }
+                }
             }
         }
     }
