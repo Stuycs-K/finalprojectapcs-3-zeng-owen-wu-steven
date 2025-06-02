@@ -56,6 +56,7 @@ void draw(){
         }
     }
 
+    level.checkWin();
     if(level.board.gameState == -1){
         level.lose();
         level.board.firstClick = true;
@@ -76,21 +77,43 @@ void mouseClicked(){
     if(level.board.gameState == 0){
 
         if(mouseButton == LEFT){
-            if(level.board.firstClick){
-                level.board.firstClick = false;
-
-            }
             level.click(mouseX, mouseY);
+            toString();
         }
         if(mouseButton == CENTER){
             level.chord(mouseX, mouseY);
+            toString();
         }
         if(mouseButton == RIGHT){
             level.flagTile(mouseX, mouseY);
+            toString();
         }
 
     }
-    
+
 }
 
+String toString(){
+    String ans = "{";
 
+    for(int i = 0; i < level.board.board.length; i++){
+        for(int j = 0; j < level.board.board[i].length; j++){
+            if(level.board.board[i][j].isFlagged()){
+                ans += "flag ";
+
+            }
+
+            if(level.board.board[i][j].isMine()){
+                ans += "mine ";
+                
+            }
+            ans += level.board.board[i][j].neighborCount;
+            ans+= ", ";
+        }
+        ans+= "\n";
+    }
+    ans+= "}";
+
+    println(ans);
+    return (ans);   
+}

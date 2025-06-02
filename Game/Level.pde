@@ -21,11 +21,14 @@ class Level{
             board.firstClick = false;
             board.generate(r,c);
         }
-        
-        if(r > 0 && c > 0 && r < board.board.length && c < board.board[0].length){ 
+        else{
+            if(r >= 0 && c >= 0 && r < board.board.length && c < board.board[0].length){ 
             Tile current = board.board[r][c];
+            }
+            board.revealTile(r,c);
         }
-        board.revealTile(r,c);
+        
+        
         
         
     }
@@ -35,7 +38,7 @@ class Level{
         Tile current;
         int count = 0;
         
-        if(r > 0 && c > 0 && r < board.board.length && c < board.board[0].length){ 
+        if(r >= 0 && c >= 0 && r < board.board.length && c < board.board[0].length){ 
             current = board.board[r][c];
         
             if(current.isRevealed()){
@@ -73,9 +76,9 @@ class Level{
         int c = (y-yOffset) / 30;
         Tile current;
         
-        if(r > 0 && c > 0 && r < board.board.length && c < board.board[0].length){ 
+        if(r >= 0 && c >=  0 && r < board.board.length && c < board.board[0].length){ 
             current = board.board[r][c];
-            current.setFlag(true);
+            current.setFlag(!current.isFlagged);
         }
     }
 
@@ -84,7 +87,7 @@ class Level{
 
         for (int i = 0; i < board.board.length; i++){
             for(int j = 0; j < board.board[0].length; j++){
-                if(board.board[i][j].isFlagged()){
+                if(board.board[i][j].isFlagged() && board.board[i][j].isMine()){
                     flags++;
                 }
             }

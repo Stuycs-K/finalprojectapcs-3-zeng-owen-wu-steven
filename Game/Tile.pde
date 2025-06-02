@@ -80,7 +80,7 @@ class Tile{
         }
 
         else if(!isRevealed){
-            image(tileUnknown, xCor, yCor);
+            image(tileUnknown, xCor, yCor); 
         }
         
 
@@ -89,7 +89,7 @@ class Tile{
         }
         
     
-        else if(!(isRevealed && isMine)){
+        else {
             switch(neighborCount){
                 case 0:
                     image(tileEmpty, xCor, yCor);

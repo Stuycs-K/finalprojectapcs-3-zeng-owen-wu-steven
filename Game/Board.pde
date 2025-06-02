@@ -14,7 +14,7 @@ public class Board{
         totalMines = mines;
         minesLeft = mines;
         gameState = 0;
-        firstClick = false;
+        firstClick = true;
         for (int r = 0; r < height; r++){
             for (int c = 0; c < width; c++){
                 board[r][c] = new Tile(r * tileMagnification,c * tileMagnification);
@@ -28,15 +28,19 @@ public class Board{
             }
         }
     }
-    boolean revealTile(int r, int c){ // returns false if invalid (if flagged, or revealed), returns true otherwise.
-        Tile tile = board[r][c];
-        if (!tile.isFlagged && !tile.isRevealed){
-            tile.setReveal(true);
+    void revealTile(int r, int c){ // returns false if invalid (if flagged, or revealed), returns true otherwise.
+
+        if(r > 0 && c > 0 && r < board.length && c < board[0].length){ 
+            Tile tile = board[r][c];
+            if (!tile.isFlagged && !tile.isRevealed){
+                tile.setReveal(true);
             if (tile.isMine){
                 gameState = -1;
             }
         }
-        return false;
+            }
+        
+        
 
     }
     void generate(int r, int c){ // put mines randomly everywhere, except the clicked tile & surrounding tiles
@@ -76,9 +80,7 @@ public class Board{
         }
         board[r][c].setNeighborCount(count);
     }
-    void flagTile(int r, int c){
-        board[r][c].setMineStatus(!board[r][c].isFlagged);
-    }
+    
     
    
 }
