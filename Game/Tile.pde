@@ -75,7 +75,7 @@ class Tile{
     }
 
     void draw(){
-        if(isFlagged){
+        if(isFlagged && !isRevealed){
             image(tileFlag, xCor, yCor);
         }
 

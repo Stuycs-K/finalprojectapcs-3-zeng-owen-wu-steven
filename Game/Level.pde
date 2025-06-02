@@ -9,13 +9,18 @@ class Level{
         this.board = board;
         this.minesLeft = remainingMines;
         this.xOffset = 270;
-        this.yOffset = 180;
+        this.yOffset = 120;
     }
     
     
     void click(int x, int y){ // 30 is tile magnification
         int r = (x-xOffset) / 30 ;
         int c = (y-yOffset) / 30;
+
+        if(board.firstClick){
+            board.firstClick = false;
+            board.generate(r,c);
+        }
         
         if(r > 0 && c > 0 && r < board.board.length && c < board.board[0].length){ 
             Tile current = board.board[r][c];
@@ -84,7 +89,7 @@ class Level{
                 }
             }
         }
-        board.minesLeft = totalMines - flags;
+        board.minesLeft = board.totalMines - flags;
 
         if(board.minesLeft == 0){
             board.gameState = 1;

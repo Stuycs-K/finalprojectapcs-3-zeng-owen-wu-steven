@@ -50,8 +50,15 @@ void setup(){
 }
 
 void draw(){
+    if(keyPressed){
+        if(key == ' '){
+
+        }
+    }
+
     if(level.board.gameState == -1){
         level.lose();
+        level.board.firstClick = true;
     }
     if(level.board.gameState == 1){
         level.win();
@@ -66,6 +73,24 @@ void draw(){
 
 
 void mouseClicked(){
+    if(level.board.gameState == 0){
 
+        if(mouseButton == LEFT){
+            if(level.board.firstClick){
+                level.board.firstClick = false;
+
+            }
+            level.click(mouseX, mouseY);
+        }
+        if(mouseButton == CENTER){
+            level.chord(mouseX, mouseY);
+        }
+        if(mouseButton == RIGHT){
+            level.flagTile(mouseX, mouseY);
+        }
+
+    }
     
 }
+
+
