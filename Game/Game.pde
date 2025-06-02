@@ -56,6 +56,8 @@ void setup(){
 }
 
 void draw(){
+    background(204, 204, 204); // reset background
+    text(level.board.minesLeft, 500,100); // mineCount
     if(keyPressed){
         if(key == ' '){
             level = new Level(new Board(16,16,20), 20);
