@@ -1,23 +1,23 @@
 class Level{
     Board board;
     int minesLeft;
-    int xOffest;
+    int xOffset;
     int yOffset;
     
 
     public Level(Board board, int remainingMines){
         this.board = board;
         this.minesLeft = remainingMines;
-        this.xOffest = 270;
+        this.xOffset = 270;
         this.yOffset = 180;
     }
     
     
     void click(int x, int y){ // 30 is tile magnification
-        int r = (width-xOffset) / 30 ;
-        int c = (height-yOffset) / 30;
+        int r = (x-xOffset) / 30 ;
+        int c = (y-yOffset) / 30;
         
-        if(r > 0 && c > 0 && r < board.length && c < board[0].length){ 
+        if(r > 0 && c > 0 && r < board.board.length && c < board.board[0].length){ 
             Tile current = board.board[r][c];
         }
         board.revealTile(r,c);
@@ -25,36 +25,37 @@ class Level{
         
     }
     void chord(int x, int y){
-        int r = (width-xOffset) / 30 ;
-        int c = (height-yOffset) / 30;
+        int r = (x-xOffset) / 30 ;
+        int c = (y-yOffset) / 30;
         Tile current;
-        int surondCount = 0;
+        int count = 0;
         
-        if(r > 0 && c > 0 && r < board.length && c < board[0].length){ 
-            Tile current = board.board[r][c];
-        }
-        if(current.isRevealed()){
+        if(r > 0 && c > 0 && r < board.board.length && c < board.board[0].length){ 
+            current = board.board[r][c];
+        
+            if(current.isRevealed()){
 
-            for(int i  = -1; i <= 1; i++){
-                for (int j = -1; j <= 1; j++){
-                    if(i > 0 && j > 0 && i < board.length && j < board[0].length){
-                        if(board.board[i][j].isFlagged()){
-                            count ++;
-                        }
-                    }
-
-                }
-            }
-
-            if(count == current.neighborCount){
                 for(int i  = -1; i <= 1; i++){
                     for (int j = -1; j <= 1; j++){
-                        if(i > 0 && j > 0 && i < board.length && j < board[0].length){
-                            if(! board.board[i][j].isFlagged()){
-                                board.board[i][j].revealTile();
+                        if(i > 0 && j > 0 && i < board.board.length && j < board.board[0].length){
+                            if(board.board[i][j].isFlagged()){
+                                count ++;
                             }
                         }
 
+                    }
+                }
+
+                if(count == current.neighborCount){
+                    for(int i  = -1; i <= 1; i++){
+                        for (int j = -1; j <= 1; j++){
+                            if(i > 0 && j > 0 && i < board.board.length && j < board.board[0].length){
+                                if(! board.board[i][j].isFlagged()){
+                                    board.revealTile(i,j);
+                                }
+                            }
+
+                        }
                     }
                 }
             }
@@ -63,18 +64,31 @@ class Level{
     }
 
     void flagTile(int x, int y){
-        int r = (width-xOffset) / 30 ;
-        int c = (height-yOffset) / 30;
+        int r = (x-xOffset) / 30 ;
+        int c = (y-yOffset) / 30;
         Tile current;
         
-        if(r > 0 && c > 0 && r < board.length && c < board[0].length){ 
-            Tile current = board.board[r][c];
+        if(r > 0 && c > 0 && r < board.board.length && c < board.board[0].length){ 
+            current = board.board[r][c];
+            current.setFlag(true);
         }
-        current.setFlag(true);
     }
 
-    boolean checkWin(){
-        return board.gameState;
+    void checkWin(){
+        int flags = 0;
+
+        for (int i = 0; i < board.board.length; i++){
+            for(int j = 0; j < board.board[0].length; j++){
+                if(board.board[i][j].isFlagged()){
+                    flags++;
+                }
+            }
+        }
+        board.minesLeft = totalMines - flags;
+
+        if(board.minesLeft == 0){
+            board.gameState = 1;
+        }
 
     }
     void win(){
@@ -84,7 +98,7 @@ class Level{
         for(int i = 0; i < board.board.length; i++){
             for(int j =0; j < board.board[0].length; j++){
                 if(board.board[i][j].isMine()){
-                    board.board[i][j].revealTile();
+                    board.revealTile(i,j);
                 }
             }
         }

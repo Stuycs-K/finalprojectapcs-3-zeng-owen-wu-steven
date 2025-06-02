@@ -50,15 +50,15 @@ void setup(){
 }
 
 void draw(){
-    if(gameState == -1){
+    if(level.board.gameState == -1){
         level.lose();
     }
-    if(gameState == 1){
+    if(level.board.gameState == 1){
         level.win();
     }
-    if(gameState == 0){
+    if(level.board.gameState == 0){
         level.draw();
-        
+
     }
     
 
