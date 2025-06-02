@@ -112,16 +112,16 @@ String toString(){
 
     for(int i = 0; i < level.board.board.length; i++){
         for(int j = 0; j < level.board.board[i].length; j++){
-            if(level.board.board[i][j].isFlagged()){
+            if(level.board.board[j][i].isFlagged()){
                 ans += "flag ";
 
             }
 
-            if(level.board.board[i][j].isMine()){
+            if(level.board.board[j][i].isMine()){
                 ans += "mine ";
                 
             }
-            ans += level.board.board[i][j].neighborCount;
+            ans += level.board.board[j][i].neighborCount;
             ans+= ", ";
         }
         ans+= "\n";

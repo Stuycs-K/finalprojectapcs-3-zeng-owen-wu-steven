@@ -34,11 +34,11 @@ public class Board{
             Tile tile = board[r][c];
             if (!tile.isFlagged && !tile.isRevealed){
                 tile.setReveal(true);
-            if (tile.isMine){
-                gameState = -1;
+                if (tile.isMine){
+                    gameState = -1;
+                }
             }
         }
-            }
         
         
 
