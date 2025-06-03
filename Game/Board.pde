@@ -35,25 +35,25 @@ public class Board{
     boolean checkBounds(int r, int c){
         return r >= 0 && c >= 0 && r < board.length && c < board[r].length;
     }
-    boolean isValid(int r, int c, boolean interactable){
-        Tile tile = tile(r,c);
-        if (tile.isFlagged() || tile.isRevealed()){
+    boolean interactable(int r, int c, boolean interactable){
+        if (checkBounds(r,c)){
             return false;
         }
-        return r >= 0 && c >= 0 && r < board.length && c < board[0].length;
+        Tile tile = tile(r,c);
+        return tile.isFlagged() || tile.isRevealed();
     }
     void revealTile(int r, int c){ // returns false if invalid (if flagged, or revealed), returns true otherwise.
-        if(r >= 0 && c >= 0 && r < board.length && c < board[0].length){ 
-            Tile tile = tile(r,c);
-            if (!tile.isFlagged() && !tile.isRevealed()){
-                if (tile.getNeighborCount() == 0){
-                    clearZeroes(r,c);
-                }
-                tile.reveal();
-                if (tile.isMine()){
-                    gameState = -1;
-                }
-            }
+        if(!interactable(r,c)){
+            return;
+        }
+        Tile tile = tile(r,c);
+        if (tile.isMine()){
+            gameState = -1;
+        }
+        tile.reveal();
+
+        if (tile.getNeighborCount() == 0){
+            clearZeroes(r,c);
         }
     }
     void generate(int r, int c){ // put mines randomly everywhere, except the clicked tile & surrounding tiles
@@ -89,8 +89,8 @@ public class Board{
             for (int ci = -1; ci <= 1; ci++){
                 int selectR = r+ri;
                 int selectC = c+ci;
-                if (selectR >= 0 && selectR < board.length && selectC >= 0 && selectC < board[selectR].length && board[selectR][selectC].isMine() ){
-                    board[selectR][selectC].setNeighborCount(board[selectR][selectC].getNeighborCount() + 1); // + 1 count
+                if (checkBounds(selectR,selectC) && board[selectR][selectC].isMine()){
+                    board[selectR][selectC].changeNeighborCount(1); // + 1 count
                 }
             }
         }
@@ -101,7 +101,7 @@ public class Board{
             for (int ci = -1; ci <= 1; ci++){
                 int selectR = r+ri;
                 int selectC = c+ci;
-                if (selectR >= 0 && selectR < board.length && selectC >= 0 && selectC < board[selectR].length && board[selectR][selectC].isMine()){
+                if (checkBounds(selectR, selectC) && board[selectR][selectC].isMine()){
                     count++;
                 }
             }
