@@ -4,7 +4,7 @@ class Tile{
     int neighborCount;
     boolean isRevealed;
     boolean isFlagged;
-    boolean cleared;
+    boolean isCleared;
     int xCor;
     int yCor;
     int r;
@@ -21,7 +21,7 @@ class Tile{
         this.isMine = mine;
         this.isRevealed = revealed;
         this.isFlagged = flagged;
-        this.cleared = cleared;
+        this.isCleared = cleared;
         this.xCor = xCor + xOffset;
         this.yCor = yCor + yOffset;
         this.r = r;

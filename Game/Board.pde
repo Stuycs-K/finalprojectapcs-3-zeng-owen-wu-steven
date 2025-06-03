@@ -32,10 +32,13 @@ public class Board{
     Tile tile(int r, int c){ // accessor
         return board[r][c];
     }
+    void toggleFlag(int r, int c){
+        board[r][c].toggleFlag();
+    }
     boolean checkBounds(int r, int c){
         return r >= 0 && c >= 0 && r < board.length && c < board[r].length;
     }
-    boolean interactable(int r, int c, boolean interactable){
+    boolean interactable(int r, int c){
         if (checkBounds(r,c)){
             return false;
         }
@@ -70,16 +73,15 @@ public class Board{
         }
     }
     void clearZeroes(int r, int c){
-        if(r >= 0 && c >= 0 && r < board.length && c < board[0].length){ 
-            Tile tile = board[r][c];
-            if (tile.isRevealed == false){
-                tile.setReveal(true);
-                if (tile.getNeighborCount() == 0){
-                    for (int i = -1; i <= 1; i++) {
-                        for (int j = -1; j <= 1; j++) {
-                            clearZeroes(r + i, c + j);
-                        }
-                    }
+        if(!checkBounds(r,c)){
+            return;
+        } 
+        Tile tile = board[r][c];
+        if (tile.isRevealed == false && tile.getNeighborCount() == 0){
+            tile.setReveal(true);
+            for (int i = -1; i <= 1; i++) {
+                for (int j = -1; j <= 1; j++) {
+                    clearZeroes(r + i, c + j);
                 }
             }
         }
