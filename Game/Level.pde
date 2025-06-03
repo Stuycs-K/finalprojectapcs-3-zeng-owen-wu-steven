@@ -118,7 +118,7 @@ class Level{
         Tile current;
         
         if(r >= 0 && c >=  0 && r < board.board.length && c < board.board[0].length){ 
-            toggleFlag(r,c);
+            board.toggleFlag(r,c);
         }
     }
 

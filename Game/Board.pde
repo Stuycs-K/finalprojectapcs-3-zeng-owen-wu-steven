@@ -33,9 +33,11 @@ public class Board{
         }
     }
     void toggleFlag(int r, int c){
-        board[r][c].flag = !board[r][c].flag;
+        Tile tile = tile(r,c);
+        tile.setFlag(!tile.isFlagged);
     }
     boolean isValid(int r, int c, boolean interactable){
+        Tile tile = tile(r,c);
         if (tile.isFlagged || tile.isRevealed){
             return false;
         }
@@ -45,11 +47,11 @@ public class Board{
         if(r >= 0 && c >= 0 && r < board.length && c < board[0].length){ 
             Tile tile = board[r][c];
             if (!tile.isFlagged && !tile.isRevealed){
-                tile.setReveal(true);
                 if (tile.neighborCount == 0){
                     clearZeroes(r,c);
                 }
-                else if (tile.isMine){
+                tile.setReveal(true);
+                if (tile.isMine){
                     gameState = -1;
                 }
             }
