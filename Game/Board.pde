@@ -17,7 +17,7 @@ public class Board{
         firstClick = true;
         for (int r = 0; r < height; r++){
             for (int c = 0; c < width; c++){
-                board[r][c] = new Tile(r * tileMagnification,c * tileMagnification);
+                board[r][c] = new Tile(r * tileMagnification, c * tileMagnification, r, c);
             }
         }
     }

@@ -7,8 +7,10 @@ class Tile{
     boolean cleared;
     int xCor;
     int yCor;
+    int r;
+    int c;
 
-    Tile(int neighbors, boolean mine,  boolean revealed, boolean flagged, boolean cleared, int xCor, int yCor){
+    Tile(int neighbors, boolean mine,  boolean revealed, boolean flagged, boolean cleared, int xCor, int yCor, int r, int c){
         int xOffset = width / 4;
         int yOffset = height / 6;
 
@@ -22,11 +24,12 @@ class Tile{
         this.cleared = cleared;
         this.xCor = xCor + xOffset;
         this.yCor = yCor + yOffset;
-
+        this.r = r;
+        this.c = c;
     }
 
-    Tile(int xCor, int yCor){
-        this(0,false,false,false,false,xCor,yCor);
+    Tile(int xCor, int yCor, int r, int c){
+        this(0,false,false,false,false,xCor,yCor,r,c);
     }
 
 
@@ -50,6 +53,12 @@ class Tile{
     }
     int getYcor(){
         return yCor;
+    }
+    int getR(){
+        return r;
+    }
+    int getC(){
+        return c;
     }
 
     void setMineStatus(boolean status){
@@ -92,6 +101,14 @@ class Tile{
    
     void setY(int y){
         yCor = y;
+    }
+
+    void setR(int r){
+        this.r = r;
+    }
+   
+    void setC(int c){
+        this.c = c;
     }
 
     void draw(){
