@@ -1,4 +1,5 @@
 Level level;
+Restart restart;
 
 PImage tile1;
 PImage tile2;
@@ -13,6 +14,8 @@ PImage tileExploded;
 PImage tileFlag;
 PImage tileMine;
 PImage tileUnknown;
+PImage restartButton;
+
 void setup(){
   size(1080,720);
         tile1 = loadImage("../Sprites/Sprites/Tile1.png");
@@ -28,7 +31,7 @@ void setup(){
         tileFlag = loadImage("../Sprites/Sprites/TileFlag.png"); 
         tileMine = loadImage("../Sprites/Sprites/TileMine.png"); 
         tileUnknown = loadImage("../Sprites/Sprites/TileUnknown.png"); 
-        restart = loadImage("../Sprites/Sprites/Restart.jpg");
+        restartButton = loadImage("../Sprites/Sprites/Restart.png");
 
         tile1.resize(30,30);
         tile2.resize(30,30);
@@ -46,6 +49,8 @@ void setup(){
 
         int numMines = 20;
         level = new Level(new Board(16,16,numMines), numMines);
+        restart = new Restart((int)(width * .75), (int) (height * .25));
+
 
         
         
@@ -59,12 +64,9 @@ void setup(){
 void draw(){
     background(204, 204, 204); // reset background
     text(level.board.minesLeft, 500,100); // mineCount
-    if(keyPressed){
-        if(key == ' '){
-            level = new Level(new Board(16,16,20), 20);
-            toString();
-        }
-    }
+    restart.draw();
+
+
 
     for(int i = 0; i < level.board.board.length; i++){
             for(int j = 0; j < level.board.board[i].length; j++){
@@ -93,6 +95,13 @@ void draw(){
 
 
 void mouseClicked(){
+
+    if(mouseButton == LEFT){
+        if(mouseX >= restart.xCor && mouseX < (restart.xCor + 64) && mouseY >= restart.yCor && mouseY < (restart.yCor + 64)){
+            restart.function();
+        }
+    }
+
     if(level.board.gameState == 0){
 
         if(mouseButton == LEFT){

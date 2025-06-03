@@ -11,7 +11,9 @@ class Restart extends Button{
     }
 
     void draw(){
-        image(restart,xCor,yCor);
+        fill(255);
+        rect(xCor,yCor, 64,64);
+        image(restartButton,xCor,yCor);
     }
 
 
