@@ -15,43 +15,42 @@ public class Board{
         minesLeft = mines;
         gameState = 0;
         firstClick = true;
-        for (int r = 0; r < height; r++){
-            for (int c = 0; c < width; c++){
+        for (int r = 0; r < board.length; r++){
+            for (int c = 0; c < board[r].length; c++){
                 board[r][c] = new Tile(r * tileMagnification, c * tileMagnification, r, c);
             }
         }
     }
 
-    Tile tile(int r, int c){ // accessor
-        return board[r][c];
-    }
     void draw(){
         for (int r = 0; r < board.length; r++){
-            for (int c = 0; c < board[0].length; c++){
+            for (int c = 0; c < board[r].length; c++){
                 board[r][c].draw();
             }
         }
     }
-    void toggleFlag(int r, int c){
-        Tile tile = tile(r,c);
-        tile.setFlag(!tile.isFlagged);
+    Tile tile(int r, int c){ // accessor
+        return board[r][c];
+    }
+    boolean checkBounds(int r, int c){
+        return r >= 0 && c >= 0 && r < board.length && c < board[r].length;
     }
     boolean isValid(int r, int c, boolean interactable){
         Tile tile = tile(r,c);
-        if (tile.isFlagged || tile.isRevealed){
+        if (tile.isFlagged() || tile.isRevealed()){
             return false;
         }
         return r >= 0 && c >= 0 && r < board.length && c < board[0].length;
     }
     void revealTile(int r, int c){ // returns false if invalid (if flagged, or revealed), returns true otherwise.
         if(r >= 0 && c >= 0 && r < board.length && c < board[0].length){ 
-            Tile tile = board[r][c];
-            if (!tile.isFlagged && !tile.isRevealed){
-                if (tile.neighborCount == 0){
+            Tile tile = tile(r,c);
+            if (!tile.isFlagged() && !tile.isRevealed()){
+                if (tile.getNeighborCount() == 0){
                     clearZeroes(r,c);
                 }
-                tile.setReveal(true);
-                if (tile.isMine){
+                tile.reveal();
+                if (tile.isMine()){
                     gameState = -1;
                 }
             }
