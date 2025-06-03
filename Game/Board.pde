@@ -53,11 +53,10 @@ public class Board{
         if (tile.getNeighborCount() == 0 && !tile.isCleared()){
             clearZeroes(r,c);
         } else{
-
-        tile.reveal();
-        if (tile.isMine()){
-            gameState = -1;
-        }
+            tile.reveal();
+            if (tile.isMine()){
+                gameState = -1;
+            }
         }
     }
 
@@ -84,7 +83,7 @@ public class Board{
         for (int i = -1; i <= 1; i++) {
             for (int j = -1; j <= 1; j++) {
                 if (i != 0 || j!= 0){
-                    clearZeroes(r+i,c+j);
+                    revealTile(r+i,c+j);
                 }
             }
         }
