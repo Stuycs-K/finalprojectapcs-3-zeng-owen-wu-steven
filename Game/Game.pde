@@ -43,7 +43,7 @@ void setup(){
         tileFlag.resize(30,30);
         tileUnknown.resize(30,30);
 
-        int numMines = 20;
+        int numMines = 100;
         level = new Level(new Board(16,16,numMines), numMines);
 
         

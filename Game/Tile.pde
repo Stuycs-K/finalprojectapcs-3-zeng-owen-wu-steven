@@ -39,6 +39,9 @@ class Tile{
     boolean isFlagged(){
         return isFlagged;
     }
+    boolean isCleared(){
+        return isCleared;
+    }
     int getNeighborCount(){
         return neighborCount;
     }
@@ -52,23 +55,39 @@ class Tile{
     void setMineStatus(boolean status){
         this.isMine = status;
     }
-
+    void setClearedStatus(boolean status){
+        this.isCleared = status;
+    }
     void setFlag(boolean flagStatus){
         this.isFlagged = flagStatus;
     }
-
     void setReveal(boolean revealedStatus){
         this.isRevealed = revealedStatus;
     }
-
-
     void setNeighborCount(int count){
         this.neighborCount = count;
+    }
+    void toggleFlag(){
+        setFlag(!isFlagged());
+    }
+    void reveal(){
+        if (this.isRevealed == true){
+            println("unRevealing tile, SHOULD NOT HAPPEN"); // DEBUG
+        }
+        this.isRevealed = !this.isRevealed;
+    }
+    void clear(){
+        if (this.isCleared == true){
+            println("unClearing tile, SHOULD NOT HAPPEN"); // DEBUG
+        }
+        this.isCleared = !this.isCleared;
+    }
+    void changeNeighborCount(int count){
+        setNeighborCount(getNeighborCount() + count);
     }
 
     void setX(int x){
         xCor = x;
-    
     }
    
     void setY(int y){
