@@ -70,7 +70,7 @@ class Tile{
     void setFlag(boolean flagStatus){
         this.isFlagged = flagStatus;
     }
-    void setReveal(boolean revealedStatus){
+    void setRevealedStatus(boolean revealedStatus){
         this.isRevealed = revealedStatus;
     }
     void setNeighborCount(int count){
@@ -80,16 +80,17 @@ class Tile{
         setFlag(!isFlagged());
     }
     void reveal(){
-        if (this.isRevealed == true){
+        if (isRevealed()){
             println("unRevealing tile, SHOULD NOT HAPPEN"); // DEBUG
         }
-        this.isRevealed = !this.isRevealed;
+        setRevealedStatus(!isRevealed());
     }
     void clear(){
-        if (this.isCleared == true){
+        if (isCleared()){
             println("unClearing tile, SHOULD NOT HAPPEN"); // DEBUG
         }
-        this.isCleared = !this.isCleared;
+        setClearedStatus(!isCleared());
+        setRevealedStatus(true);
     }
     void changeNeighborCount(int count){
         setNeighborCount(getNeighborCount() + count);

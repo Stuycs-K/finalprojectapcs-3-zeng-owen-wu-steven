@@ -35,30 +35,33 @@ public class Board{
     void toggleFlag(int r, int c){
         board[r][c].toggleFlag();
     }
-    boolean checkBounds(int r, int c){
+    boolean inBounds(int r, int c){ // returns true if in bounds
         return r >= 0 && c >= 0 && r < board.length && c < board[r].length;
     }
-    boolean interactable(int r, int c){
-        if (checkBounds(r,c)){
+    boolean interactable(int r, int c){ // returns true if in bounds, not flagged, not revealed;
+        if (!inBounds(r,c)){
             return false;
         }
         Tile tile = tile(r,c);
-        return tile.isFlagged() || tile.isRevealed();
+        return !(tile.isFlagged() || tile.isRevealed()); 
     }
     void revealTile(int r, int c){ // returns false if invalid (if flagged, or revealed), returns true otherwise.
         if(!interactable(r,c)){
             return;
         }
         Tile tile = tile(r,c);
+        if (tile.getNeighborCount() == 0 && !tile.isCleared()){
+            clearZeroes(r,c);
+        } else{
+
+        tile.reveal();
         if (tile.isMine()){
             gameState = -1;
         }
-        tile.reveal();
-
-        if (tile.getNeighborCount() == 0){
-            clearZeroes(r,c);
         }
     }
+
+    
     void generate(int r, int c){ // put mines randomly everywhere, except the clicked tile & surrounding tiles
         for (int i = 0; i < totalMines; i++){
             int randR = (int)(random(board.length));
@@ -73,15 +76,15 @@ public class Board{
         }
     }
     void clearZeroes(int r, int c){
-        if(!checkBounds(r,c)){
+        if(!interactable(r,c)){
             return;
-        } 
+        }
         Tile tile = board[r][c];
-        if (tile.isRevealed == false && tile.getNeighborCount() == 0){
-            tile.setReveal(true);
-            for (int i = -1; i <= 1; i++) {
-                for (int j = -1; j <= 1; j++) {
-                    clearZeroes(r + i, c + j);
+        tile.clear();
+        for (int i = -1; i <= 1; i++) {
+            for (int j = -1; j <= 1; j++) {
+                if (i != 0 || j!= 0){
+                    clearZeroes(r+i,c+j);
                 }
             }
         }
@@ -91,7 +94,7 @@ public class Board{
             for (int ci = -1; ci <= 1; ci++){
                 int selectR = r+ri;
                 int selectC = c+ci;
-                if (checkBounds(selectR,selectC) && board[selectR][selectC].isMine()){
+                if (inBounds(selectR,selectC) && board[selectR][selectC].isMine()){
                     board[selectR][selectC].changeNeighborCount(1); // + 1 count
                 }
             }
@@ -103,7 +106,7 @@ public class Board{
             for (int ci = -1; ci <= 1; ci++){
                 int selectR = r+ri;
                 int selectC = c+ci;
-                if (checkBounds(selectR, selectC) && board[selectR][selectC].isMine()){
+                if (inBounds(selectR, selectC) && board[selectR][selectC].isMine()){
                     count++;
                 }
             }
