@@ -28,6 +28,7 @@ void setup(){
         tileFlag = loadImage("../Sprites/Sprites/TileFlag.png"); 
         tileMine = loadImage("../Sprites/Sprites/TileMine.png"); 
         tileUnknown = loadImage("../Sprites/Sprites/TileUnknown.png"); 
+        restart = loadImage("../Sprites/Sprites/Restart.jpg");
 
         tile1.resize(30,30);
         tile2.resize(30,30);

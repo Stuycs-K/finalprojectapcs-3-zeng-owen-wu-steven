@@ -128,7 +128,7 @@ class Level{
 
         for (int i = 0; i < board.board.length; i++){
             for(int j = 0; j < board.board[0].length; j++){
-                if(board.board[i][j].isFlagged() && board.board[i][j].isMine()){
+                if(board.board[i][j].isFlagged()){
                     flags++;
                 }
             }
