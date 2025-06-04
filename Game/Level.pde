@@ -18,11 +18,10 @@ class Level{
         int c = (y-yOffset) / 30;
 
         if(board.firstClick){
-            board.firstClick = !board.firstClick;
-            println("first click");
             
 
             if(r >= 0 && c >= 0 && r < board.board.length && c < board.board[0].length){ 
+                board.firstClick = !board.firstClick;
                 board.generate(r,c);
             }
 

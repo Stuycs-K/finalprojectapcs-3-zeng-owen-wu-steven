@@ -66,6 +66,12 @@ void draw(){
     text(level.board.minesLeft, 500,100); // mineCount
     restart.draw();
 
+    if(keyPressed){
+        if(keyCode == ' '){
+            level = new Level(new Board(16,16,20),20);
+        }
+    }
+
 
 
     for(int i = 0; i < level.board.board.length; i++){
@@ -143,7 +149,12 @@ String toString(){
     ans+= "}";
 
     println(ans);
-        println("state : " + level.board.gameState);
+    println("state : " + level.board.gameState);
+    println(level.board.firstClick);
+
+
+
+    
 
     return (ans);   
 }

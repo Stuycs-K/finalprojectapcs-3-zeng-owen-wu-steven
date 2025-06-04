@@ -8,6 +8,7 @@ class Restart extends Button{
 
     void function(){
         level = new Level(new Board(16,16,20), 20);
+
     }
 
     void draw(){
