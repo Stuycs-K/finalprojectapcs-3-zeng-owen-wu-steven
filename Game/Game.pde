@@ -1,5 +1,7 @@
 Level level;
 Restart restart;
+ChooseMine chooseMine;
+int mineCount;
 
 PImage tile1;
 PImage tile2;
@@ -47,9 +49,10 @@ void setup(){
         tileFlag.resize(30,30);
         tileUnknown.resize(30,30);
 
-        int numMines = 20;
-        level = new Level(new Board(16,16,numMines), numMines);
-        restart = new Restart((int)(width * .75), (int) (height * .25));
+        mineCount = 20;
+        level = new Level(new Board(16,16,mineCount), mineCount);
+        restart = new Restart((int)(width * .75), (int) (height * .25), mineCount);
+        chooseMine = new ChooseMine((int) (width * .75), (int) (height * .35));
 
 
         
@@ -65,10 +68,11 @@ void draw(){
     background(204, 204, 204); // reset background
     text(level.board.minesLeft, 500,100); // mineCount
     restart.draw();
+    chooseMine.draw();
 
     if(keyPressed){
         if(keyCode == ' '){
-            level = new Level(new Board(16,16,20),20);
+            level = new Level(new Board(16,16,mineCount),mineCount);
         }
     }
 

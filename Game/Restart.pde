@@ -1,13 +1,13 @@
 class Restart extends Button{
 
 
-    Restart(int xCor, int yCor){
+    Restart(int xCor, int yCor, int mineCount){
         super(xCor, yCor);
     }
 
 
     void function(){
-        level = new Level(new Board(16,16,20), 20);
+        level = new Level(new Board(16,16,mineCount), mineCount);
 
     }
 
