@@ -49,14 +49,11 @@ public class Board{
         if(!interactable(r,c)){
             return;
         }
+        clearZeroes(r,c);
         Tile tile = tile(r,c);
-        if (tile.getNeighborCount() == 0 && !tile.isCleared()){
-            clearZeroes(r,c);
-        } else{
-            tile.reveal();
-            if (tile.isMine()){
-                gameState = -1;
-            }
+        tile.reveal();
+        if (tile.isMine()){
+            gameState = -1;
         }
     }
 
@@ -79,11 +76,14 @@ public class Board{
             return;
         }
         Tile tile = board[r][c];
-        tile.clear();
+        if (tile.getNeighborCount() != 0){
+            return;
+        }
+        tile.reveal();
         for (int i = -1; i <= 1; i++) {
             for (int j = -1; j <= 1; j++) {
                 if (i != 0 || j!= 0){
-                    revealTile(r+i,c+j);
+                    clearZeroes(r+i,c+j);
                 }
             }
         }
