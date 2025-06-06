@@ -81,16 +81,16 @@ class Tile{
     }
     void reveal(){
         if (isRevealed()){
-            println("unRevealing tile, SHOULD NOT HAPPEN"); // DEBUG
+            println("attempted to unReveal"); // DEBUG
         }
-        setRevealedStatus(!isRevealed());
+        setRevealedStatus(true);
     }
     void clear(){
         if (isCleared()){
             println("unClearing tile, SHOULD NOT HAPPEN"); // DEBUG
         }
-        setClearedStatus(!isCleared());
-        setRevealedStatus(true);
+        setClearedStatus(true);
+        reveal();
     }
     void changeNeighborCount(int count){
         setNeighborCount(getNeighborCount() + count);

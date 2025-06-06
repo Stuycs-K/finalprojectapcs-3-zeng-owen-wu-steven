@@ -49,12 +49,12 @@ public class Board{
         if(!interactable(r,c)){
             return;
         }
-        clearZeroes(r,c);
         Tile tile = tile(r,c);
         tile.reveal();
         if (tile.isMine()){
             gameState = -1;
         }
+        clearZeroes(r,c);
     }
 
     
