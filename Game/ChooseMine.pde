@@ -1,17 +1,18 @@
 class ChooseMine extends Button{
+    PImage thisMine;    
 
     ChooseMine(int x, int y){
         super(x,y);
+        this.thisMine = loadImage("../Sprites/Sprites/TileMine.png");
+        thisMine.resize(64,64);
     }
 
     void draw(){
-        tileMine.resize(64,64);
         rect(xCor,yCor, 64,64);
-        image(tileMine,xCor, yCor);
-        tileMine.resize(30,30);
+        image(thisMine,xCor, yCor);
     }
 
-    void function(){
-
+    void function(int count){
+        mineCount = count;
     }
 }

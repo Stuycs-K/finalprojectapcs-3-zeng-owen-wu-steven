@@ -1,6 +1,8 @@
 Level level;
 Restart restart;
 ChooseMine chooseMine;
+
+boolean mineFunction;
 int mineCount;
 
 PImage tile1;
@@ -49,7 +51,7 @@ void setup(){
         tileFlag.resize(30,30);
         tileUnknown.resize(30,30);
 
-        mineCount = 20;
+        mineCount = 100;
         level = new Level(new Board(16,16,mineCount), mineCount);
         restart = new Restart((int)(width * .75), (int) (height * .25), mineCount);
         chooseMine = new ChooseMine((int) (width * .75), (int) (height * .35));
@@ -66,15 +68,13 @@ void setup(){
 
 void draw(){
     background(204, 204, 204); // reset background
-    text(level.board.minesLeft, 500,100); // mineCount
+    text("Mines Left: " + level.board.minesLeft, 500,100); // mineCount
     restart.draw();
     chooseMine.draw();
-
-    if(keyPressed){
-        if(keyCode == ' '){
-            level = new Level(new Board(16,16,mineCount),mineCount);
-        }
+    if(mineFunction){
+        rect(chooseMine.xCor + 80, chooseMine.yCor - 32, 128,128);
     }
+    
 
 
 
@@ -110,6 +110,14 @@ void mouseClicked(){
         if(mouseX >= restart.xCor && mouseX < (restart.xCor + 64) && mouseY >= restart.yCor && mouseY < (restart.yCor + 64)){
             restart.function();
         }
+
+
+        if(mouseX >= chooseMine.xCor && mouseX < (chooseMine.xCor + 64) && mouseY >= chooseMine.yCor && mouseY < (chooseMine.yCor + 64)){
+            mineFunction = !mineFunction; // so that draw can call it
+        }
+
+
+
     }
 
     if(level.board.gameState == 0){

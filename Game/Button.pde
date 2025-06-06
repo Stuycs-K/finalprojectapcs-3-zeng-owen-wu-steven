@@ -13,7 +13,7 @@ class Button {
     }
 
     void draw(){
-
+        rect(xCor,yCor, 64,64);
     }
 
 
