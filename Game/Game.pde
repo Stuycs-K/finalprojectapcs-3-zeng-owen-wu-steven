@@ -2,7 +2,7 @@ Level level;
 Restart restart;
 ChooseMine chooseMine;
 
-boolean mineFunction;
+boolean mineButton;
 int mineCount;
 
 PImage tile1;
@@ -53,8 +53,8 @@ void setup(){
 
         mineCount = 100;
         level = new Level(new Board(16,16,mineCount), mineCount);
-        restart = new Restart((int)(width * .75), (int) (height * .25), mineCount);
-        chooseMine = new ChooseMine((int) (width * .75), (int) (height * .35));
+        restart = new Restart((int)(width * .64), (int) (height * .25), mineCount);
+        chooseMine = new ChooseMine((int) (width * .64), (int) (height * .35));
 
 
         
@@ -70,9 +70,9 @@ void draw(){
     background(204, 204, 204); // reset background
     text("Mines Left: " + level.board.minesLeft, 500,100); // mineCount
     restart.draw();
-    chooseMine.draw();
-    if(mineFunction){
-        rect(chooseMine.xCor + 80, chooseMine.yCor - 32, 128,128);
+    chooseMine.draw(mouseX, mouseY);
+    if(mineButton){
+
     }
     
 
@@ -113,7 +113,8 @@ void mouseClicked(){
 
 
         if(mouseX >= chooseMine.xCor && mouseX < (chooseMine.xCor + 64) && mouseY >= chooseMine.yCor && mouseY < (chooseMine.yCor + 64)){
-            mineFunction = !mineFunction; // so that draw can call it
+            chooseMine.function();
+            mineButton = !mineButton; // so that draw can call it
         }
 
 

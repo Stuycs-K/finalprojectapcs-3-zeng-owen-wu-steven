@@ -8,8 +8,8 @@ class Level{
     public Level(Board board, int remainingMines){
         this.board = board;
         this.minesLeft = remainingMines;
-        this.xOffset = 270;
-        this.yOffset = 120;
+        this.xOffset = width / 6;
+        this.yOffset = height / 6;
     }
     
     

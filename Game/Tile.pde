@@ -8,7 +8,7 @@ class Tile{
     int yCor;
 
     Tile(int neighbors, boolean mine,  boolean revealed, boolean flagged, int xCor, int yCor){
-        int xOffset = width / 4;
+        int xOffset = width / 6;
         int yOffset = height / 6;
 
 
