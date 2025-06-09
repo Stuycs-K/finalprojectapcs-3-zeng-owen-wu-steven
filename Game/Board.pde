@@ -1,4 +1,4 @@
-public class Board{
+class Board{
     Tile[][] board;
     int totalMines;
     int minesLeft; // totalMines - flagged tiles
@@ -7,8 +7,6 @@ public class Board{
 
     Board(int width, int height, int mines){
         int tileMagnification = 30;
-
-
 
         board = new Tile[16][16];
         totalMines = mines;

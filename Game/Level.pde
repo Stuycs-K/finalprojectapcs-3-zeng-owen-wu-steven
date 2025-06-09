@@ -8,8 +8,8 @@ class Level{
     public Level(Board board, int remainingMines){
         this.board = board;
         this.minesLeft = remainingMines;
-        this.xOffset = 270;
-        this.yOffset = 120;
+        this.xOffset = width / 6;
+        this.yOffset = height / 6;
     }
     
     
@@ -18,11 +18,10 @@ class Level{
         int c = (y-yOffset) / 30;
 
         if(board.firstClick){
-            board.firstClick = !board.firstClick;
-            println("first click");
             
 
             if(r >= 0 && c >= 0 && r < board.board.length && c < board.board[0].length){ 
+                board.firstClick = !board.firstClick;
                 board.generate(r,c);
             }
 
@@ -127,7 +126,7 @@ class Level{
 
         for (int i = 0; i < board.board.length; i++){
             for(int j = 0; j < board.board[0].length; j++){
-                if(board.board[i][j].isFlagged() && board.board[i][j].isMine()){
+                if(board.board[i][j].isFlagged()){
                     flags++;
                 }
             }

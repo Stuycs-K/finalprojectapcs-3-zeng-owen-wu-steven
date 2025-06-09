@@ -1,4 +1,8 @@
 Level level;
+Restart restart;
+ChooseMine chooseMine;
+
+int mineCount;
 import java.util.ArrayDeque;
 PImage tile1;
 PImage tile2;
@@ -13,8 +17,12 @@ PImage tileExploded;
 PImage tileFlag;
 PImage tileMine;
 PImage tileUnknown;
+PImage restartButton;
+
 void setup(){
   size(1080,720);
+  textSize(16);
+  strokeWeight(2);
         tile1 = loadImage("../Sprites/Sprites/Tile1.png");
         tile2 = loadImage("../Sprites/Sprites/Tile2.png"); 
         tile3 = loadImage("../Sprites/Sprites/Tile3.png"); 
@@ -28,6 +36,7 @@ void setup(){
         tileFlag = loadImage("../Sprites/Sprites/TileFlag.png"); 
         tileMine = loadImage("../Sprites/Sprites/TileMine.png"); 
         tileUnknown = loadImage("../Sprites/Sprites/TileUnknown.png"); 
+        restartButton = loadImage("../Sprites/Sprites/Restart.png");
 
         tile1.resize(30,30);
         tile2.resize(30,30);
@@ -43,8 +52,11 @@ void setup(){
         tileFlag.resize(30,30);
         tileUnknown.resize(30,30);
 
-        int numMines = 100;
-        level = new Level(new Board(16,16,numMines), numMines);
+        mineCount = 100;
+        level = new Level(new Board(16,16,mineCount), mineCount);
+        restart = new Restart((int)(width * .64), (int) (height * .25), mineCount);
+        chooseMine = new ChooseMine((int) (width * .64), (int) (height * .35));
+
 
         
         
@@ -57,13 +69,13 @@ void setup(){
 
 void draw(){
     background(204, 204, 204); // reset background
-    text(level.board.minesLeft, 500,100); // mineCount
-    if(keyPressed){
-        if(key == ' '){
-            level = new Level(new Board(16,16,20), 20);
-            toString();
-        }
-    }
+    text("Mines Left: " + level.board.minesLeft, 500,100); // mineCount
+    restart.draw();
+    chooseMine.draw(mouseX, mouseY);
+    
+    
+
+
 
     for(int i = 0; i < level.board.board.length; i++){
             for(int j = 0; j < level.board.board[i].length; j++){
@@ -86,12 +98,28 @@ void draw(){
     } 
     // DEBUG
     fill(0);
-    text(mouseX + ", "+mouseY, mouseX, mouseY);
+    // text(mouseX + ", "+mouseY, mouseX, mouseY);
 
 }
 
 
 void mouseClicked(){
+
+    if(mouseButton == LEFT){
+        if(mouseX >= restart.xCor && mouseX < (restart.xCor + 64) && mouseY >= restart.yCor && mouseY < (restart.yCor + 64)){
+            restart.function();
+        }
+
+
+        if(mouseX >= chooseMine.xCor && mouseX < (chooseMine.xCor + 64) && mouseY >= chooseMine.yCor && mouseY < (chooseMine.yCor + 64)){
+            chooseMine.function();
+            
+        }
+
+
+
+    }
+
     if(level.board.gameState == 0){
 
         if(mouseButton == LEFT){
@@ -133,7 +161,12 @@ String toString(){
     ans+= "}";
 
     println(ans);
-        println("state : " + level.board.gameState);
+    println("state : " + level.board.gameState);
+    println(level.board.firstClick);
+
+
+
+    
 
     return (ans);   
 }

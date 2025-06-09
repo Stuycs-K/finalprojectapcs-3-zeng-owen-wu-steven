@@ -11,7 +11,7 @@ class Tile{
     int c;
 
     Tile(int neighbors, boolean mine,  boolean revealed, boolean flagged, boolean cleared, int xCor, int yCor, int r, int c){
-        int xOffset = width / 4;
+        int xOffset = width / 6;
         int yOffset = height / 6;
 
 
