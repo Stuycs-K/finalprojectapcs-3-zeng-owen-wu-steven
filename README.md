@@ -3,7 +3,8 @@
 
 This project is a clone of Minesweeper, with all of the basic mechanics. This includes flagging tiles, revealing tiles, board generation, and chording. We also have additional features, such as hints, allowing the user to select mine count, and a restart button. We also have an alternate mode, where tile counts(the number on revealed tiles that shows neighboring mines) are one higher or lower than its actual number.  
 Video:
-![Video](files/Final%20Minesweeper%20Video.mp4) 
+![Video](files/Final%20Minesweeper%20Video.mp4)
+https://github.com/Stuycs-K/finalprojectapcs-3-zeng-owen-wu-steven/blob/main/files/Final%20Minesweeper%20Video.mp4
 
 
 # Intended usage:
