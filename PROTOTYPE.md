@@ -15,24 +15,26 @@ Revealing and Flagging of tiles, Check for ~win~/loss
 
 Nice to have features: 
 Different modes/variations that change up the rules for mines/clearing. (Update: Only one mode added - misleading mine counts)
-~Example: Guessing mode, where the there will be sections where you are forced to guess.~ 
-Explanation: Our generation does not generate a No-Guess board. In order to generate one, we would have to make our own Minesweeper solver and only allow boards that the solver could solve. 
+~Example: Guessing mode, where the there will be sections where you are forced to guess.~  
+Explanation: Our generation does not generate a No-Guess board. In order to generate one, we would have to make our own Minesweeper solver and only allow boards that the solver could solve.  
 
-~In-game drawing tools (writing on the screen)~ 
-Explanation: Not enough time
-Menu/Level layout: 
-    Skip & Retry level
-    Hints (updated: flags an unflagged mine)
+~In-game drawing tools (writing on the screen)~  
+Explanation: Not enough time  
+
+Menu/Level layout:  
+
+    Skip & Retry level,  
+    Hints (updated: flags an unflagged mine) 
 
 A description of your technical design. This should include: 
    
 How you will be using the topics covered in class in the project.
      
 # Project Design
-Old Diagram:
-![old diagram](files/umlDiagram.png)
-Final Diagram:
-![new diagram](files/umlDiagramUpdated.png)
+Old Diagram:  
+![old diagram](files/umlDiagram.png)  
+Final Diagram:  
+![new diagram](files/umlDiagramUpdated.png)  
 
 # Intended pacing:
 
