@@ -45,7 +45,7 @@ void setup(){
         tileMine = loadImage("../Sprites/Sprites/TileMine.png"); 
         tileUnknown = loadImage("../Sprites/Sprites/TileUnknown.png"); 
         restartButton = loadImage("../Sprites/Sprites/Restart.png");
-        hintButton = loadImage("../../Sprites/Sprites/hint.png");
+        hintButton = loadImage("../Sprites/Sprites/hint.png");
 
         tile1.resize(30,30);
         tile2.resize(30,30);
