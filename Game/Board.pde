@@ -71,19 +71,35 @@ public class Board{
             }
         }
     }
-    void clearZeroes(int r, int c){
-        if(!interactable(r,c)){
-            return;
-        }
-        Tile tile = board[r][c];
-        if (tile.getNeighborCount() != 0){
-            return;
-        }
-        tile.reveal();
-        for (int i = -1; i <= 1; i++) {
-            for (int j = -1; j <= 1; j++) {
-                if (i != 0 || j!= 0){
-                    clearZeroes(r+i,c+j);
+    void clearZeroes(int startR, int startC){
+        ArrayDeque<int[]> queue = new ArrayDeque<>();
+        queue.add(new int[]{startR, startC});
+        while (!queue.isEmpty()) {
+            int[] current = queue.poll();
+            int r = current[0];
+            int c = current[1];
+
+            if (!inBounds(r, c)){
+                continue;
+            }
+            Tile tile = tile(r,c);
+            if (tile.isCleared()){
+                continue;
+            }
+            tile.clear();
+
+            if (tile.getNeighborCount() != 0){
+                continue;
+            }
+
+            for (int ri = -1; ri <= 1; ri++) {
+                for (int ci = -1; ci <= 1; ci++) {
+                    if (ri == 0 && ci == 0) continue;
+                    int selectR = r + ri;
+                    int selectC = c + ci;
+                    if (inBounds(selectR, selectC) && !board[selectR][selectC].isCleared()) {
+                        queue.add(new int[]{selectR, selectC});
+                    }
                 }
             }
         }
