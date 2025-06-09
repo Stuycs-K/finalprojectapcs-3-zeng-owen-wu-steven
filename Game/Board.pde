@@ -52,7 +52,7 @@ class Board{
         if (tile.isMine()){
             gameState = -1;
         }
-        // clearZeroes(r,c);
+        clearZeroes(r,c);
     }
 
     
@@ -66,6 +66,12 @@ class Board{
                 addNeighbors(randR, randC);
             }else{
                 i--;
+            }
+        }
+
+            for(int i = 0; i < level.board.board.length; i++){
+            for(int j = 0; j < level.board.board[i].length; j++){
+                level.board.calcAmtNeighbors(i,j);
             }
         }
     }
@@ -84,11 +90,12 @@ class Board{
             if (tile.isCleared()){
                 continue;
             }
-            tile.clear();
 
             if (tile.getNeighborCount() != 0){
+                tile.clear();
                 continue;
             }
+            tile.clear();
 
             for (int ri = -1; ri <= 1; ri++) {
                 for (int ci = -1; ci <= 1; ci++) {
