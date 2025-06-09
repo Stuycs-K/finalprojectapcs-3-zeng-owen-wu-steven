@@ -45,7 +45,7 @@ Fixing restart button not allowing the initial 3x3 reveal, and started making bu
 Switched from typing number of mines to making a slider for mines.
 
 ### 2025-06-07
+Got the constraining and moving fixed for slider
 
-
-
-
+### 2025-06-08
+Created working mineCount button+slider; lets user choose how many mines 
