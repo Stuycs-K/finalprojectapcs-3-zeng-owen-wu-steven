@@ -21,10 +21,16 @@ class Slider{
         this.isActive = false;
         this.movingKnob = false;
         this.numMines = mineCount;
-        this.knobX = x + sWidth * .5;
+        this.knobX = x + sWidth * .4565;
     }
 
     void drawSlider(int mX, int mY){
+
+        int min = 1;
+        int max = (level.board.board.length - 1) * (level.board.board[0].length - 1);
+
+        float percent = (knobX - x - sWidth * .1) / (sWidth * .8);
+        numMines = (int) (percent * max - min) + min;
 
         float maxLeft = x +sWidth * .1;
         float maxRight = x + sWidth * .9;
@@ -36,7 +42,7 @@ class Slider{
 
 
 
-            
+           
 
 
             if(mousePressed && mouseButton == LEFT && dist(mouseX, mouseY, knobX, y + sHeight * .5) < 5){
@@ -49,6 +55,8 @@ class Slider{
             }
             if(!mousePressed){
                 movingKnob = false;
+                mineCount = numMines;
+                
             }  
             knobX = constrain(knobX, maxLeft, maxRight);
 
@@ -58,11 +66,16 @@ class Slider{
             line(x + sWidth * .9, y + sHeight * .25, x + sWidth * .9, y + sHeight*.75);
             line(x + sWidth * .1, y + sHeight * .5, x + sWidth * .9, y + sHeight*.5);
             fill(0);
-            text(title, x + sWidth * .35, y + sHeight*.1);
+            text(title, x + sWidth * .3, y + sHeight*.1);
 
             circle(knobX, y + sHeight * .5, 5);
             
-            text(knobX, y + sHeight * 6,)
+            text("" + min , x+sWidth * .09, y + sHeight * .12);
+            text("" + max, x+sWidth * .86, y + sHeight * .12);
+
+            textSize(20);
+            text("" + numMines, knobX - 13, y + sHeight * .9);  
+            textSize(16);
             
 
 

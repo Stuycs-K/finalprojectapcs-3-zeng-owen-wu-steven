@@ -2,7 +2,6 @@ Level level;
 Restart restart;
 ChooseMine chooseMine;
 
-boolean mineButton;
 int mineCount;
 
 PImage tile1;
@@ -22,6 +21,8 @@ PImage restartButton;
 
 void setup(){
   size(1080,720);
+  textSize(16);
+  strokeWeight(2);
         tile1 = loadImage("../Sprites/Sprites/Tile1.png");
         tile2 = loadImage("../Sprites/Sprites/Tile2.png"); 
         tile3 = loadImage("../Sprites/Sprites/Tile3.png"); 
@@ -71,9 +72,7 @@ void draw(){
     text("Mines Left: " + level.board.minesLeft, 500,100); // mineCount
     restart.draw();
     chooseMine.draw(mouseX, mouseY);
-    if(mineButton){
-
-    }
+    
     
 
 
@@ -114,7 +113,7 @@ void mouseClicked(){
 
         if(mouseX >= chooseMine.xCor && mouseX < (chooseMine.xCor + 64) && mouseY >= chooseMine.yCor && mouseY < (chooseMine.yCor + 64)){
             chooseMine.function();
-            mineButton = !mineButton; // so that draw can call it
+            
         }
 
 
