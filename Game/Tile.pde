@@ -4,11 +4,15 @@ class Tile{
     int neighborCount;
     boolean isRevealed;
     boolean isFlagged;
+    boolean isCleared;
     int xCor;
     int yCor;
-    boolean canHint;
 
-    Tile(int neighbors, boolean mine,  boolean revealed, boolean flagged, int xCor, int yCor){
+    int r;
+    int c;
+
+
+    Tile(int neighbors, boolean mine,  boolean revealed, boolean flagged, boolean cleared, int xCor, int yCor, int r, int c){
         int xOffset = width / 6;
         int yOffset = height / 6;
 
@@ -19,15 +23,17 @@ class Tile{
         this.isMine = mine;
         this.isRevealed = revealed;
         this.isFlagged = flagged;
+        this.isCleared = cleared;
         this.xCor = xCor + xOffset;
         this.yCor = yCor + yOffset;
-        this.canHint = true;
-        
+
+        this.r = r;
+        this.c = c;
 
     }
 
-    Tile(int xCor, int yCor){
-        this(0,false,false,false,xCor,yCor);
+    Tile(int xCor, int yCor, int r, int c){
+        this(0,false,false,false,false,xCor,yCor,r,c);
     }
 
 
@@ -40,6 +46,9 @@ class Tile{
     boolean isFlagged(){
         return isFlagged;
     }
+    boolean isCleared(){
+        return isCleared;
+    }
     int getNeighborCount(){
         return neighborCount;
     }
@@ -49,31 +58,62 @@ class Tile{
     int getYcor(){
         return yCor;
     }
+    int getR(){
+        return r;
+    }
+    int getC(){
+        return c;
+    }
 
     void setMineStatus(boolean status){
         this.isMine = status;
     }
-
+    void setClearedStatus(boolean status){
+        this.isCleared = status;
+    }
     void setFlag(boolean flagStatus){
         this.isFlagged = flagStatus;
     }
-
-    void setReveal(boolean revealedStatus){
+    void setRevealedStatus(boolean revealedStatus){
         this.isRevealed = revealedStatus;
     }
-
-
     void setNeighborCount(int count){
         this.neighborCount = count;
+    }
+    void toggleFlag(){
+        setFlag(!isFlagged());
+    }
+    void reveal(){
+        if (isRevealed()){
+            println("attempted to unReveal"); // DEBUG
+        }
+        setRevealedStatus(true);
+    }
+    void clear(){
+        if (isCleared()){
+            println("unClearing tile, SHOULD NOT HAPPEN"); // DEBUG
+        }
+        setClearedStatus(true);
+        reveal();
+    }
+    void changeNeighborCount(int count){
+        setNeighborCount(getNeighborCount() + count);
     }
 
     void setX(int x){
         xCor = x;
-    
     }
    
     void setY(int y){
         yCor = y;
+    }
+
+    void setR(int r){
+        this.r = r;
+    }
+   
+    void setC(int c){
+        this.c = c;
     }
 
     void draw(){
