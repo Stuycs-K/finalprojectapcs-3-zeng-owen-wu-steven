@@ -38,7 +38,6 @@ Final Diagram:
 
 # Intended pacing:
 
-(Assuming we start after wednesday)
 - [ ] By Friday, finish class structure
     - [ ] Finish tile(person 1)
     - [ ] Finish Board(person 1)
@@ -49,9 +48,9 @@ Final Diagram:
     - [ ] Finish depiction of tiles(person 1)
     - [ ] Finish actions for first click generation(person 2)
     - [ ] Finish flagging and chording, and click(person 2)
-    - [ ] Finish win/lose screen (open for whoever finishes)
+~    - [ ] Finish win/lose screen (open for whoever finishes)~
 
-- [ ] By Friday, get variations working.
+- [ ] By Friday, ~get variations working.~
     - [ ] Finish drawing on the board(person 1)
     - [ ] Finish button class
     - [ ] Finish game hints(person 2)
