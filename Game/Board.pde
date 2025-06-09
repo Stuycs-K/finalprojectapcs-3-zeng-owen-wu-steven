@@ -48,12 +48,13 @@ class Board{
             return;
         }
         Tile tile = tile(r,c);
-        tile.reveal();
-        if (tile.isMine()){
-            gameState = -1;
-        }
         if (tile.getNeighborCount() == 0){
             clearZeroes(r,c);
+        } else{
+            tile.reveal();
+            if (tile.isMine()){
+                gameState = -1;
+            }
         }
     }
 

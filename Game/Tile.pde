@@ -81,7 +81,7 @@ class Tile{
     }
     void reveal(){
         if (isRevealed()){
-            println("attempted to unReveal"); // DEBUG
+            println("attempted to unReveal at " + r + ", " + c); // DEBUG
         }
         setRevealedStatus(true);
     }
