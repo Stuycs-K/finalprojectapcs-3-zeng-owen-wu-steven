@@ -49,3 +49,5 @@ Got the constraining and moving fixed for slider
 
 ### 2025-06-08
 Created working mineCount button+slider; lets user choose how many mines 
+
+Steven Wu: I believe this document accurately reflects the contributions of my teammate.
