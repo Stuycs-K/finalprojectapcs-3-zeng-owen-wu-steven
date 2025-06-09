@@ -4,7 +4,7 @@
 This project is a clone of Minesweeper, with all of the basic mechanics. This includes flagging tiles, revealing tiles, board generation, and chording. We also have additional features, such as hints, allowing the user to select mine count, and a restart button. We also have an alternate mode, where tile counts(the number on revealed tiles that shows neighboring mines) are one higher or lower than its actual number.  
 Video:
 ![Video Link](files/Final%20Minesweeper%20Video.mp4)
-Sprites taken from ![Sprite Source](https://uchimama.itch.io/minesweeper-tileset)
+Sprites taken from [Sprite Source](https://uchimama.itch.io/minesweeper-tileset)
 
 # Intended usage:
 
