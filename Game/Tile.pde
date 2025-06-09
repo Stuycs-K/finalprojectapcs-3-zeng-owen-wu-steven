@@ -6,6 +6,7 @@ class Tile{
     boolean isFlagged;
     int xCor;
     int yCor;
+    boolean canHint;
 
     Tile(int neighbors, boolean mine,  boolean revealed, boolean flagged, int xCor, int yCor){
         int xOffset = width / 6;
@@ -20,6 +21,7 @@ class Tile{
         this.isFlagged = flagged;
         this.xCor = xCor + xOffset;
         this.yCor = yCor + yOffset;
+        this.canHint = true;
         
 
     }

@@ -1,9 +1,14 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/YxXKqIeT)
 # Project Description
 
-We will be making a clone of Minesweeper, with all of the basic mechanics. This includes flagging tiles, revealing tiles, board generation, and chording. We will also be adding additional features, like drawing on the board, hints, allowing user to select difficulty(mine count/board size). We also include variants, which mean that the clues(numbers on tiles) will be modified, or rules for board generation, and other modifications that would make the game harder beyond modifying mine count and board size. 
+We will be making a clone of Minesweeper, with all of the basic mechanics. This includes flagging tiles, revealing tiles, board generation, and chording. We will also be adding additional features, such as hints, allowing user to select mine count, and a restart button. We also have an alternate mode, where clues(numbered tiles) are one higher or lower than the real number.
 
 # Intended usage:
 
-The user will be prompted to select a difficulty, which determines how large the board is, and the amount of mines. The user will also be allowed to select which variants they wish to play on. They will then be shown a board of tiles that they will solve.
-  
+When starting the game, the user will have a 16x16 board of tiles to play on, with a default minecount of 100. 
+The minecount can be adjusted with the 2nd button on the right, to choose the number of mines for the next board.
+The user can click the first button to reset the board, with the new number of tiles.
+If the user loses or wins, they are unable to modify the board.
+If the user is stuck, they are allowed to click the 3rd button for a hint, which flags a mine that neighbors a revealed tile.
+For a variation, the user is allowed to choose an alternate mode where numbered tiles are either one greater or one less than the actual neighboring mine count.
+

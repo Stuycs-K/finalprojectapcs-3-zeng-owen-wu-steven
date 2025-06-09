@@ -1,6 +1,7 @@
 Level level;
 Restart restart;
 ChooseMine chooseMine;
+Hint hint;
 
 int mineCount;
 
@@ -18,6 +19,7 @@ PImage tileFlag;
 PImage tileMine;
 PImage tileUnknown;
 PImage restartButton;
+PImage hintButton;
 
 void setup(){
   size(1080,720);
@@ -37,6 +39,7 @@ void setup(){
         tileMine = loadImage("../Sprites/Sprites/TileMine.png"); 
         tileUnknown = loadImage("../Sprites/Sprites/TileUnknown.png"); 
         restartButton = loadImage("../Sprites/Sprites/Restart.png");
+        hintButton = loadImage("../../Sprites/Sprites/hint.png");
 
         tile1.resize(30,30);
         tile2.resize(30,30);
@@ -52,10 +55,13 @@ void setup(){
         tileFlag.resize(30,30);
         tileUnknown.resize(30,30);
 
+        hintButton.resize(64,64);
+
         mineCount = 100;
         level = new Level(new Board(16,16,mineCount), mineCount);
         restart = new Restart((int)(width * .64), (int) (height * .25), mineCount);
         chooseMine = new ChooseMine((int) (width * .64), (int) (height * .35));
+        hint = new Hint((int) (width * .64), (int) (height * .45));
 
 
         
@@ -71,6 +77,7 @@ void draw(){
     background(204, 204, 204); // reset background
     text("Mines Left: " + level.board.minesLeft, 500,100); // mineCount
     restart.draw();
+    hint.drawHint();
     chooseMine.draw(mouseX, mouseY);
     
     
@@ -90,6 +97,7 @@ void draw(){
         level.board.firstClick = true;
     }
     if(level.board.gameState == 1){
+        level.draw();
         level.win();
     }
     if(level.board.gameState == 0){
@@ -116,6 +124,10 @@ void mouseClicked(){
             
         }
 
+        if(mouseX >= hint.xCor && mouseX < (hint.xCor + 64) && mouseY >= hint.yCor && mouseY < (hint.yCor + 64) && level.board.gameState == 0){
+            hint.function();
+            
+        }
 
 
     }
