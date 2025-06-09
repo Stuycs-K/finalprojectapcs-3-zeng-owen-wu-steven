@@ -52,7 +52,9 @@ class Board{
         if (tile.isMine()){
             gameState = -1;
         }
-        clearZeroes(r,c);
+        if (tile.getNeighborCount() == 0){
+            clearZeroes(r,c);
+        }
     }
 
     

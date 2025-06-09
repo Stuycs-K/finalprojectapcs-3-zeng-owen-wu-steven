@@ -11,10 +11,16 @@ class Level{
         this.xOffset = width / 6;
         this.yOffset = height / 6;
     }
+
+    boolean inBounds(int x, int y){
+        int r = (x-xOffset) / 30;
+        int c = (y-yOffset) / 30;
+        return board.inBounds(r, c);
+    }
     
     
     void click(int x, int y){ // 30 is tile magnification
-        int r = (x-xOffset) / 30 ;
+        int r = (x-xOffset) / 30;
         int c = (y-yOffset) / 30;
 
         if(board.firstClick){
