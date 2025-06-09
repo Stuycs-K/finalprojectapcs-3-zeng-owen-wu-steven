@@ -43,3 +43,5 @@ Still fiddling with clearZeroes function.
 
 ### 2025-06-08
 Finished Documentation, made video with Owen
+
+Owen Zeng: I believe this document accurately reflects the contributions of my teammate.

@@ -50,4 +50,7 @@ Got the constraining and moving fixed for slider
 ### 2025-06-08
 Created working mineCount button+slider; lets user choose how many mines 
 
+### 2025-06-09
+Added hint button, fixed recursion issue for revealzeros, and added alternate clue generation.
+
 Steven Wu: I believe this document accurately reflects the contributions of my teammate.
