@@ -21,7 +21,7 @@ class Slider{
         this.isActive = false;
         this.movingKnob = false;
         this.numMines = mineCount;
-        this.knobX = x + sWidth * .4565;
+        this.knobX = x + sWidth * .4555;
     }
 
     void drawSlider(int mX, int mY){
@@ -30,7 +30,8 @@ class Slider{
         int max = (level.board.board.length - 1) * (level.board.board[0].length - 1);
 
         float percent = (knobX - x - sWidth * .1) / (sWidth * .8);
-        numMines = (int) (percent * max - min) + min;
+        numMines = (int) (percent * max - min) +min + 1;
+        numMines = constrain(numMines, 1, max);
 
         float maxLeft = x +sWidth * .1;
         float maxRight = x + sWidth * .9;
