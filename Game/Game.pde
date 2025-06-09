@@ -2,8 +2,12 @@ Level level;
 Restart restart;
 ChooseMine chooseMine;
 Hint hint;
+Normal normal;
+Alternate alternate;
 
 int mineCount;
+boolean isNormal = true;
+
 import java.util.ArrayDeque;
 PImage tile1;
 PImage tile2;
@@ -25,6 +29,8 @@ void setup(){
   size(1080,720);
   textSize(16);
   strokeWeight(2);
+  fill(0);
+
         tile1 = loadImage("../Sprites/Sprites/Tile1.png");
         tile2 = loadImage("../Sprites/Sprites/Tile2.png"); 
         tile3 = loadImage("../Sprites/Sprites/Tile3.png"); 
@@ -62,6 +68,8 @@ void setup(){
         restart = new Restart((int)(width * .64), (int) (height * .25), mineCount);
         chooseMine = new ChooseMine((int) (width * .64), (int) (height * .35));
         hint = new Hint((int) (width * .64), (int) (height * .45));
+        normal = new Normal((int) (width * .64), (int) (height * .55));
+        alternate = new Alternate((int) (width * .64), (int) (height * .65));
 
 
         
@@ -75,20 +83,23 @@ void setup(){
 
 void draw(){
     background(204, 204, 204); // reset background
-    text("Mines Left: " + level.board.minesLeft, 500,100); // mineCount
+    text("Mines Left: " + level.board.minesLeft, 500,100); // 
+    text("Alternate clues: " + !isNormal, 300,100); // 
     restart.draw();
     hint.drawHint();
     chooseMine.draw(mouseX, mouseY);
+    normal.draw();
+    alternate.draw();
     
     
 
 
 
-    for(int i = 0; i < level.board.board.length; i++){
-            for(int j = 0; j < level.board.board[i].length; j++){
-                level.board.calcAmtNeighbors(i,j);
-            }
-        }
+    // for(int i = 0; i < level.board.board.length; i++){
+    //         for(int j = 0; j < level.board.board[i].length; j++){
+    //             level.board.calcAmtNeighbors(i,j);
+    //         }
+    //     }
 
     level.checkWin();
     if(level.board.gameState == -1){
@@ -126,6 +137,15 @@ void mouseClicked(){
 
         if(mouseX >= hint.xCor && mouseX < (hint.xCor + 64) && mouseY >= hint.yCor && mouseY < (hint.yCor + 64) && level.board.gameState == 0){
             hint.function();
+            
+        }
+        if(mouseX >= normal.xCor && mouseX < (normal.xCor + 64) && mouseY >= normal.yCor && mouseY < (normal.yCor + 64) && level.board.gameState == 0){
+            normal.function();
+            
+
+        }
+        if(mouseX >= alternate.xCor && mouseX < (alternate.xCor + 64) && mouseY >= alternate.yCor && mouseY < (alternate.yCor + 64) && level.board.gameState == 0){
+            alternate.function();
             
         }
 

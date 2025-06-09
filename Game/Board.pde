@@ -131,7 +131,21 @@ class Board{
                 }
             }
         }
-        board[r][c].setNeighborCount(count);
+        if(isNormal || count == 0){
+            board[r][c].setNeighborCount(count);
+        }
+        else if (count == 1){
+            board[r][c].setNeighborCount(count +1 );
+        }
+        else{
+            if (Math.random() < 0.5) {
+                count += 1;
+            } else {
+                count -= 1;
+            }
+
+            board[r][c].setNeighborCount(constrain(count, 1, 8));
+        }
     }
     
     
