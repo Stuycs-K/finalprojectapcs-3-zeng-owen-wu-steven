@@ -1,6 +1,5 @@
 class ChooseMine extends Button{
     PImage thisMine;
-    int newNumMines;
     Slider slider;
 
     ChooseMine(int x, int y){
@@ -20,6 +19,6 @@ class ChooseMine extends Button{
     void function(){
 
         slider.isActive = !slider.isActive;
-        mineCount = newNumMines;
+
     }
 }
