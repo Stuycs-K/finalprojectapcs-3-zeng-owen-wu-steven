@@ -52,7 +52,7 @@ class Board{
         if (tile.isMine()){
             gameState = -1;
         }
-        clearZeroes(r,c);
+        // clearZeroes(r,c);
     }
 
     
