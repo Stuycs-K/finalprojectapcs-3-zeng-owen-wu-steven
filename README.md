@@ -1,7 +1,10 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/YxXKqIeT)
 # Project Description
 
-This project is a clone of Minesweeper, with all of the basic mechanics. This includes flagging tiles, revealing tiles, board generation, and chording. We also have additional features, such as hints, allowing the user to select mine count, and a restart button. We also have an alternate mode, where tile counts(the number on revealed tiles that shows neighboring mines) are one higher or lower than its actual number.
+This project is a clone of Minesweeper, with all of the basic mechanics. This includes flagging tiles, revealing tiles, board generation, and chording. We also have additional features, such as hints, allowing the user to select mine count, and a restart button. We also have an alternate mode, where tile counts(the number on revealed tiles that shows neighboring mines) are one higher or lower than its actual number.  
+Video:
+![Video](files/Final%20Minesweeper%20Video.mp4) 
+
 
 # Intended usage:
 
@@ -15,8 +18,8 @@ The user can choose to recieve a hint if they get stuck. The board may require g
 ## Controls:  
 
 Left Click: Reveals unrevealed tile  
-Middle Click - Multiclick/Chord: If the number on the revealed tile matches the amount of flagged neighbors, It will reveal all unrevealed, unflagged neighboring tiles.   
-Right Click: (Un)flags unrevealed tile;  
+Middle Click - Multiclick/Chord: If the number on the revealed tile matches the amount of flagged neighbors, it will reveal all unrevealed, unflagged neighboring tiles.  
+Right Click: (Un)flags unrevealed tile.
 
 ### Buttons: 
 1. Restart Button: Create a new board, according to the set amount of mines.
